@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FE4FEA2D2A38CF7C00007166 /* RingtoneForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA2C2A38CF7C00007166 /* RingtoneForestApp.swift */; };
+		FE4FEA2F2A38CF7C00007166 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA2E2A38CF7C00007166 /* ContentView.swift */; };
+		FE4FEA312A38CF7D00007166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE4FEA302A38CF7D00007166 /* Assets.xcassets */; };
+		FE4FEA342A38CF7D00007166 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE4FEA332A38CF7D00007166 /* Preview Assets.xcassets */; };
+		FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA3C2A38D08A00007166 /* TabBarView.swift */; };
+		FE4FEA412A38D0F900007166 /* EnvValueExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA402A38D0F900007166 /* EnvValueExt.swift */; };
+		FE4FEA432A38D1C800007166 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA422A38D1C800007166 /* HeaderView.swift */; };
+		FE4FEA462A38D29600007166 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE4FEA452A38D29600007166 /* Colors.xcassets */; };
+		FE4FEA482A38D2AE00007166 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE4FEA472A38D2AD00007166 /* Localizable.strings */; };
+		FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA492A38D2F600007166 /* Assets.swift */; };
+		FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA4A2A38D2F600007166 /* L10n.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FE4FEA292A38CF7C00007166 /* RingtoneForest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingtoneForest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE4FEA2C2A38CF7C00007166 /* RingtoneForestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtoneForestApp.swift; sourceTree = "<group>"; };
+		FE4FEA2E2A38CF7C00007166 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FE4FEA302A38CF7D00007166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE4FEA332A38CF7D00007166 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FE4FEA3C2A38D08A00007166 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		FE4FEA402A38D0F900007166 /* EnvValueExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvValueExt.swift; sourceTree = "<group>"; };
+		FE4FEA422A38D1C800007166 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		FE4FEA452A38D29600007166 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FE4FEA472A38D2AD00007166 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		FE4FEA492A38D2F600007166 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		FE4FEA4A2A38D2F600007166 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE4FEA262A38CF7C00007166 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FE4FEA202A38CF7C00007166 = {
+			isa = PBXGroup;
+			children = (
+				FE4FEA2B2A38CF7C00007166 /* RingtoneForest */,
+				FE4FEA2A2A38CF7C00007166 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FE4FEA2A2A38CF7C00007166 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE4FEA292A38CF7C00007166 /* RingtoneForest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE4FEA2B2A38CF7C00007166 /* RingtoneForest */ = {
+			isa = PBXGroup;
+			children = (
+				FE4FEA2C2A38CF7C00007166 /* RingtoneForestApp.swift */,
+				FE4FEA442A38D28700007166 /* Resources */,
+				FE4FEA3A2A38D06D00007166 /* Scenes */,
+				FE4FEA2E2A38CF7C00007166 /* ContentView.swift */,
+				FE4FEA322A38CF7D00007166 /* Preview Content */,
+			);
+			path = RingtoneForest;
+			sourceTree = "<group>";
+		};
+		FE4FEA322A38CF7D00007166 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FE4FEA332A38CF7D00007166 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FE4FEA3A2A38D06D00007166 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FE4FEA3E2A38D0DC00007166 /* Common */,
+				FE4FEA3B2A38D07900007166 /* TabBar */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FE4FEA3B2A38D07900007166 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FE4FEA3C2A38D08A00007166 /* TabBarView.swift */,
+				FE4FEA422A38D1C800007166 /* HeaderView.swift */,
+			);
+			name = TabBar;
+			path = "TabBả";
+			sourceTree = "<group>";
+		};
+		FE4FEA3E2A38D0DC00007166 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FE4FEA3F2A38D0E800007166 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FE4FEA3F2A38D0E800007166 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FE4FEA402A38D0F900007166 /* EnvValueExt.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FE4FEA442A38D28700007166 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FE4FEA302A38CF7D00007166 /* Assets.xcassets */,
+				FE4FEA492A38D2F600007166 /* Assets.swift */,
+				FE4FEA4A2A38D2F600007166 /* L10n.swift */,
+				FE4FEA452A38D29600007166 /* Colors.xcassets */,
+				FE4FEA472A38D2AD00007166 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE4FEA282A38CF7C00007166 /* RingtoneForest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE4FEA372A38CF7D00007166 /* Build configuration list for PBXNativeTarget "RingtoneForest" */;
+			buildPhases = (
+				FE4FEA252A38CF7C00007166 /* Sources */,
+				FE4FEA262A38CF7C00007166 /* Frameworks */,
+				FE4FEA272A38CF7C00007166 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RingtoneForest;
+			productName = RingtoneForest;
+			productReference = FE4FEA292A38CF7C00007166 /* RingtoneForest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE4FEA212A38CF7C00007166 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					FE4FEA282A38CF7C00007166 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = FE4FEA242A38CF7C00007166 /* Build configuration list for PBXProject "RingtoneForest" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE4FEA202A38CF7C00007166;
+			productRefGroup = FE4FEA2A2A38CF7C00007166 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE4FEA282A38CF7C00007166 /* RingtoneForest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE4FEA272A38CF7C00007166 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE4FEA462A38D29600007166 /* Colors.xcassets in Resources */,
+				FE4FEA482A38D2AE00007166 /* Localizable.strings in Resources */,
+				FE4FEA342A38CF7D00007166 /* Preview Assets.xcassets in Resources */,
+				FE4FEA312A38CF7D00007166 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE4FEA252A38CF7C00007166 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE4FEA432A38D1C800007166 /* HeaderView.swift in Sources */,
+				FE4FEA2F2A38CF7C00007166 /* ContentView.swift in Sources */,
+				FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */,
+				FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */,
+				FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */,
+				FE4FEA2D2A38CF7C00007166 /* RingtoneForestApp.swift in Sources */,
+				FE4FEA412A38D0F900007166 /* EnvValueExt.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FE4FEA352A38CF7D00007166 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FE4FEA362A38CF7D00007166 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE4FEA382A38CF7D00007166 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RingtoneForest/Preview Content\"";
+				DEVELOPMENT_TEAM = AZP7X54L2J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tttbkhn.RingtoneForest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE4FEA392A38CF7D00007166 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RingtoneForest/Preview Content\"";
+				DEVELOPMENT_TEAM = AZP7X54L2J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tttbkhn.RingtoneForest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE4FEA242A38CF7C00007166 /* Build configuration list for PBXProject "RingtoneForest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE4FEA352A38CF7D00007166 /* Debug */,
+				FE4FEA362A38CF7D00007166 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE4FEA372A38CF7D00007166 /* Build configuration list for PBXNativeTarget "RingtoneForest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE4FEA382A38CF7D00007166 /* Debug */,
+				FE4FEA392A38CF7D00007166 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE4FEA212A38CF7C00007166 /* Project object */;
+}

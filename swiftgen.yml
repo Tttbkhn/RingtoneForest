@@ -1,0 +1,13 @@
+strings:
+    inputs: RingtoneForest/Resources/Localizable.strings
+    outputs:
+        templateName: structured-swift5
+        output: RingtoneForest/Resources/L10n.swift
+        
+xcassets:
+    inputs:
+        - RingtoneForest/Resources/Assets.xcassets
+        - RingtoneForest/Resources/Colors.xcassets
+    outputs:
+        templateName: swift5
+        output: RingtoneForest/Resources/Assets.swift
