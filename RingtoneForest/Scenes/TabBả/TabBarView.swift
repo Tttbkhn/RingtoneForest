@@ -7,46 +7,115 @@
 
 import SwiftUI
 
-enum Tab: Int {
-    case maker, myTone, wallpaper, settings
+enum Tab: String {
+    case maker = "Maker"
+    case myTone = "My tone"
+    case wallpaper = "Wallpaper"
+    case settings = "Setting"
 }
 
 struct TabBarView: View {
     @State var selectedTab = Tab.maker
+    @Environment(\.safeAreaInsets) var safeAreaInsets
     
     var body: some View {
         ZStack {
             switch selectedTab {
             case .maker:
-                ZStack {
-                
+                NavigationView {
+                    ZStack {
+                        MakerView()
+                        
+                        VStack {
+                            Spacer()
+                            
+                            tabBarView
+                        }
+                    }
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
             case .myTone:
-                ZStack {
-                    
+                NavigationView {
+                    ZStack {
+                        MyTonesView()
+                        
+                        VStack {
+                            Spacer()
+                            
+                            tabBarView
+                        }
+                    }
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
             case .wallpaper:
-                ZStack {
-                    
+                NavigationView {
+                    ZStack {
+                        WallpaperView()
+                        
+                        VStack {
+                            Spacer()
+                            
+                            tabBarView
+                        }
+                    }
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
             case .settings:
-                ZStack {
-                    
+                NavigationView {
+                    ZStack {
+                        SettingsView()
+                        
+                        VStack {
+                            Spacer()
+                            
+                            tabBarView
+                        }
+                    }
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
             }
         }
     }
     
     var tabBarView: some View {
-        ZStack {
-            HStack {
-                
-            }
+        HStack {
+            tabBarItem(.maker, icon: Asset.Assets.icMakerUnselected, selectedIcon: Asset.Assets.icMakerSelected)
+            tabBarItem(.myTone, icon: Asset.Assets.icMytonesUnselected, selectedIcon: Asset.Assets.icMytonesSelected)
+            tabBarItem(.wallpaper, icon: Asset.Assets.icWallpaperUnselected, selectedIcon: Asset.Assets.icWallpaperSelected)
+            tabBarItem(.settings, icon: Asset.Assets.icSettingUnselected, selectedIcon: Asset.Assets.icSettingSelected)
         }
+        .padding(.top, 11)
+        .frame(maxWidth: .infinity)
+        .frame(height: 60)
+        .background(Color(asset: Asset.Colors.colorBG).ignoresSafeArea())
     }
     
     func tabBarItem(_ tab: Tab, icon: ImageAsset, selectedIcon: ImageAsset) -> some View {
-        
+        VStack(spacing: 4) {
+            Image(asset: selectedTab == tab ? selectedIcon : icon)
+            
+            Text(tab.rawValue)
+                .foregroundColor(Color(asset: selectedTab == tab ? Asset.Colors.colorGreen69BE15 : Asset.Colors.colorGray83868A))
+                .font(.system(size: 12, weight: .medium))
+            
+            if selectedTab == tab {
+                Rectangle()
+                    .frame(height: 5)
+                    .foregroundColor(Color(asset: Asset.Colors.colorGreen69BE15))
+                    .blur(radius: 15)
+            } else {
+                Spacer()
+                    .frame(height: 5)
+            }
+            
+            Spacer()
+            
+        }
+        .frame(width: (UIScreen.main.bounds.width - 50) / 4, height: 60)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            selectedTab = tab
+        }
     }
 }
 

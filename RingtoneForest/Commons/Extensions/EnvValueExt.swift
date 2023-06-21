@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension EnvironmentValues {
-    var C: EdgeInsets {
+    var safeAreaInsets: EdgeInsets {
         self[SafeAreaInsetsKey.self]
     }
 }

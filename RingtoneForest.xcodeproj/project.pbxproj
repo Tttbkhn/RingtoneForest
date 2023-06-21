@@ -14,10 +14,15 @@
 		FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA3C2A38D08A00007166 /* TabBarView.swift */; };
 		FE4FEA412A38D0F900007166 /* EnvValueExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA402A38D0F900007166 /* EnvValueExt.swift */; };
 		FE4FEA432A38D1C800007166 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA422A38D1C800007166 /* HeaderView.swift */; };
-		FE4FEA462A38D29600007166 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE4FEA452A38D29600007166 /* Colors.xcassets */; };
 		FE4FEA482A38D2AE00007166 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE4FEA472A38D2AD00007166 /* Localizable.strings */; };
 		FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA492A38D2F600007166 /* Assets.swift */; };
 		FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA4A2A38D2F600007166 /* L10n.swift */; };
+		FEF66D7B2A42C0C800CE5525 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */; };
+		FEF66D7D2A42C7F800CE5525 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEF66D7C2A42C7F800CE5525 /* Colors.xcassets */; };
+		FEF66D802A43007100CE5525 /* MakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D7F2A43007100CE5525 /* MakerView.swift */; };
+		FEF66D832A43008400CE5525 /* MyTonesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D822A43008400CE5525 /* MyTonesView.swift */; };
+		FEF66D862A43009700CE5525 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D852A43009700CE5525 /* SettingsView.swift */; };
+		FEF66D892A4300AF00CE5525 /* WallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D882A4300AF00CE5525 /* WallpaperView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,10 +34,15 @@
 		FE4FEA3C2A38D08A00007166 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		FE4FEA402A38D0F900007166 /* EnvValueExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvValueExt.swift; sourceTree = "<group>"; };
 		FE4FEA422A38D1C800007166 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		FE4FEA452A38D29600007166 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FE4FEA472A38D2AD00007166 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FE4FEA492A38D2F600007166 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		FE4FEA4A2A38D2F600007166 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		FEF66D7C2A42C7F800CE5525 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FEF66D7F2A43007100CE5525 /* MakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerView.swift; sourceTree = "<group>"; };
+		FEF66D822A43008400CE5525 /* MyTonesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTonesView.swift; sourceTree = "<group>"; };
+		FEF66D852A43009700CE5525 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FEF66D882A4300AF00CE5525 /* WallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				FE4FEA2C2A38CF7C00007166 /* RingtoneForestApp.swift */,
+				FEF66D772A42C09600CE5525 /* Commons */,
 				FE4FEA442A38D28700007166 /* Resources */,
 				FE4FEA3A2A38D06D00007166 /* Scenes */,
 				FE4FEA2E2A38CF7C00007166 /* ContentView.swift */,
@@ -85,7 +96,11 @@
 		FE4FEA3A2A38D06D00007166 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FE4FEA3E2A38D0DC00007166 /* Common */,
+				FEF66D872A43009A00CE5525 /* Wallpaper */,
+				FEF66D842A43008700CE5525 /* Settings */,
+				FEF66D812A43007800CE5525 /* My Tones */,
+				FEF66D7E2A43005F00CE5525 /* Maker */,
+				FEF66D792A42C0B300CE5525 /* ReuseViews */,
 				FE4FEA3B2A38D07900007166 /* TabBar */,
 			);
 			path = Scenes;
@@ -101,15 +116,27 @@
 			path = "TabBả";
 			sourceTree = "<group>";
 		};
-		FE4FEA3E2A38D0DC00007166 /* Common */ = {
+		FE4FEA442A38D28700007166 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FE4FEA3F2A38D0E800007166 /* Extensions */,
+				FE4FEA302A38CF7D00007166 /* Assets.xcassets */,
+				FE4FEA492A38D2F600007166 /* Assets.swift */,
+				FE4FEA4A2A38D2F600007166 /* L10n.swift */,
+				FEF66D7C2A42C7F800CE5525 /* Colors.xcassets */,
+				FE4FEA472A38D2AD00007166 /* Localizable.strings */,
 			);
-			path = Common;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		FE4FEA3F2A38D0E800007166 /* Extensions */ = {
+		FEF66D772A42C09600CE5525 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				FEF66D782A42C09F00CE5525 /* Extensions */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		FEF66D782A42C09F00CE5525 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				FE4FEA402A38D0F900007166 /* EnvValueExt.swift */,
@@ -117,16 +144,44 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FE4FEA442A38D28700007166 /* Resources */ = {
+		FEF66D792A42C0B300CE5525 /* ReuseViews */ = {
 			isa = PBXGroup;
 			children = (
-				FE4FEA302A38CF7D00007166 /* Assets.xcassets */,
-				FE4FEA492A38D2F600007166 /* Assets.swift */,
-				FE4FEA4A2A38D2F600007166 /* L10n.swift */,
-				FE4FEA452A38D29600007166 /* Colors.xcassets */,
-				FE4FEA472A38D2AD00007166 /* Localizable.strings */,
+				FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */,
 			);
-			path = Resources;
+			path = ReuseViews;
+			sourceTree = "<group>";
+		};
+		FEF66D7E2A43005F00CE5525 /* Maker */ = {
+			isa = PBXGroup;
+			children = (
+				FEF66D7F2A43007100CE5525 /* MakerView.swift */,
+			);
+			path = Maker;
+			sourceTree = "<group>";
+		};
+		FEF66D812A43007800CE5525 /* My Tones */ = {
+			isa = PBXGroup;
+			children = (
+				FEF66D822A43008400CE5525 /* MyTonesView.swift */,
+			);
+			path = "My Tones";
+			sourceTree = "<group>";
+		};
+		FEF66D842A43008700CE5525 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FEF66D852A43009700CE5525 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FEF66D872A43009A00CE5525 /* Wallpaper */ = {
+			isa = PBXGroup;
+			children = (
+				FEF66D882A4300AF00CE5525 /* WallpaperView.swift */,
+			);
+			path = Wallpaper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,8 +242,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE4FEA462A38D29600007166 /* Colors.xcassets in Resources */,
 				FE4FEA482A38D2AE00007166 /* Localizable.strings in Resources */,
+				FEF66D7D2A42C7F800CE5525 /* Colors.xcassets in Resources */,
 				FE4FEA342A38CF7D00007166 /* Preview Assets.xcassets in Resources */,
 				FE4FEA312A38CF7D00007166 /* Assets.xcassets in Resources */,
 			);
@@ -202,12 +257,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE4FEA432A38D1C800007166 /* HeaderView.swift in Sources */,
+				FEF66D892A4300AF00CE5525 /* WallpaperView.swift in Sources */,
 				FE4FEA2F2A38CF7C00007166 /* ContentView.swift in Sources */,
 				FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */,
+				FEF66D7B2A42C0C800CE5525 /* ActivityViewController.swift in Sources */,
+				FEF66D802A43007100CE5525 /* MakerView.swift in Sources */,
 				FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */,
+				FEF66D832A43008400CE5525 /* MyTonesView.swift in Sources */,
 				FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */,
 				FE4FEA2D2A38CF7C00007166 /* RingtoneForestApp.swift in Sources */,
 				FE4FEA412A38D0F900007166 /* EnvValueExt.swift in Sources */,
+				FEF66D862A43009700CE5525 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

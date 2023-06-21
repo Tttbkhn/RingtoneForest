@@ -5,3 +5,18 @@
   Created by Thu Trương on 13/06/2023.
   
 */
+
+// MARK: - Tab Bar
+"maker" = "Maker";
+"my_tone" = "My tone";
+"wallpaper" = "Wallpaper";
+"setting" = "Setting";
+"app_name" = "TuneForest";
+
+// MARK: - Maker
+"from_video" = "Audio from Video";
+"record_audio" = "Record Audio";
+"live_wallpaper_maker" = "Live Wallpaper Maker";
+"import_files" = "Import files";
+"media" = "Media";
+
