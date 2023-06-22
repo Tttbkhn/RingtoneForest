@@ -27,22 +27,34 @@ internal enum Asset {
   internal enum Assets {
     internal static let accentColor = ColorAsset(name: "AccentColor")
     internal static let icCrown = ImageAsset(name: "ic_crown")
+    internal static let icImportFile = ImageAsset(name: "ic_import_file")
+    internal static let icLiveWallpaper = ImageAsset(name: "ic_live_wallpaper")
     internal static let icMakerSelected = ImageAsset(name: "ic_maker_selected")
     internal static let icMakerUnselected = ImageAsset(name: "ic_maker_unselected")
     internal static let icMytonesSelected = ImageAsset(name: "ic_mytones_selected")
     internal static let icMytonesUnselected = ImageAsset(name: "ic_mytones_unselected")
+    internal static let icRecord = ImageAsset(name: "ic_record")
     internal static let icSettingSelected = ImageAsset(name: "ic_setting_selected")
     internal static let icSettingUnselected = ImageAsset(name: "ic_setting_unselected")
     internal static let icTunes = ImageAsset(name: "ic_tunes")
+    internal static let icVideo = ImageAsset(name: "ic_video")
     internal static let icWallpaperSelected = ImageAsset(name: "ic_wallpaper_selected")
     internal static let icWallpaperUnselected = ImageAsset(name: "ic_wallpaper_unselected")
     internal static let imgBackground = ImageAsset(name: "img_background")
   }
   internal enum Colors {
     internal static let colorBG = ColorAsset(name: "ColorBG")
+    internal static let colorBlack = ColorAsset(name: "ColorBlack")
+    internal static let colorBlueGrad1273437 = ColorAsset(name: "ColorBlueGrad1#273437")
+    internal static let colorBlueGrad2202329 = ColorAsset(name: "ColorBlueGrad2#202329")
     internal static let colorGray83868A = ColorAsset(name: "ColorGray#83868A")
     internal static let colorGreen69BE15 = ColorAsset(name: "ColorGreen69BE15")
+    internal static let colorGreenGrad12C3727 = ColorAsset(name: "ColorGreenGrad1#2C3727")
+    internal static let colorPinkGrad136242B = ColorAsset(name: "ColorPinkGrad1#36242B")
     internal static let colorTabBG202329 = ColorAsset(name: "ColorTabBG#202329")
+    internal static let colorWhite = ColorAsset(name: "ColorWhite")
+    internal static let colorWhite70 = ColorAsset(name: "ColorWhite70")
+    internal static let colorYellowGrad1312E25 = ColorAsset(name: "ColorYellowGrad1#312E25")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

@@ -23,6 +23,8 @@
 		FEF66D832A43008400CE5525 /* MyTonesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D822A43008400CE5525 /* MyTonesView.swift */; };
 		FEF66D862A43009700CE5525 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D852A43009700CE5525 /* SettingsView.swift */; };
 		FEF66D892A4300AF00CE5525 /* WallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D882A4300AF00CE5525 /* WallpaperView.swift */; };
+		FEF66D8B2A44612600CE5525 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D8A2A44612600CE5525 /* Constant.swift */; };
+		FEF66D8D2A446F0E00CE5525 /* TextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D8C2A446F0D00CE5525 /* TextModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		FEF66D822A43008400CE5525 /* MyTonesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTonesView.swift; sourceTree = "<group>"; };
 		FEF66D852A43009700CE5525 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FEF66D882A4300AF00CE5525 /* WallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperView.swift; sourceTree = "<group>"; };
+		FEF66D8A2A44612600CE5525 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		FEF66D8C2A446F0D00CE5525 /* TextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				FEF66D782A42C09F00CE5525 /* Extensions */,
+				FEF66D8A2A44612600CE5525 /* Constant.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */,
+				FEF66D8C2A446F0D00CE5525 /* TextModifier.swift */,
 			);
 			path = ReuseViews;
 			sourceTree = "<group>";
@@ -261,10 +267,12 @@
 				FE4FEA2F2A38CF7C00007166 /* ContentView.swift in Sources */,
 				FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */,
 				FEF66D7B2A42C0C800CE5525 /* ActivityViewController.swift in Sources */,
+				FEF66D8D2A446F0E00CE5525 /* TextModifier.swift in Sources */,
 				FEF66D802A43007100CE5525 /* MakerView.swift in Sources */,
 				FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */,
 				FEF66D832A43008400CE5525 /* MyTonesView.swift in Sources */,
 				FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */,
+				FEF66D8B2A44612600CE5525 /* Constant.swift in Sources */,
 				FE4FEA2D2A38CF7C00007166 /* RingtoneForestApp.swift in Sources */,
 				FE4FEA412A38D0F900007166 /* EnvValueExt.swift in Sources */,
 				FEF66D862A43009700CE5525 /* SettingsView.swift in Sources */,
