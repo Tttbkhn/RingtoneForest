@@ -25,6 +25,9 @@
 		FEF66D892A4300AF00CE5525 /* WallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D882A4300AF00CE5525 /* WallpaperView.swift */; };
 		FEF66D8B2A44612600CE5525 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D8A2A44612600CE5525 /* Constant.swift */; };
 		FEF66D8D2A446F0E00CE5525 /* TextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D8C2A446F0D00CE5525 /* TextModifier.swift */; };
+		FEF66D8F2A454C8B00CE5525 /* AudioFromVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D8E2A454C8B00CE5525 /* AudioFromVideoView.swift */; };
+		FEF66D942A45C4BD00CE5525 /* VideosAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D932A45C4BD00CE5525 /* VideosAsset.swift */; };
+		FEF66D972A45C72000CE5525 /* RecordAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D962A45C72000CE5525 /* RecordAudioView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		FEF66D882A4300AF00CE5525 /* WallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperView.swift; sourceTree = "<group>"; };
 		FEF66D8A2A44612600CE5525 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		FEF66D8C2A446F0D00CE5525 /* TextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifier.swift; sourceTree = "<group>"; };
+		FEF66D8E2A454C8B00CE5525 /* AudioFromVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFromVideoView.swift; sourceTree = "<group>"; };
+		FEF66D932A45C4BD00CE5525 /* VideosAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosAsset.swift; sourceTree = "<group>"; };
+		FEF66D962A45C72000CE5525 /* RecordAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAudioView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 		FE4FEA2B2A38CF7C00007166 /* RingtoneForest */ = {
 			isa = PBXGroup;
 			children = (
+				FEF66D922A45C4B000CE5525 /* Models */,
 				FE4FEA2C2A38CF7C00007166 /* RingtoneForestApp.swift */,
 				FEF66D772A42C09600CE5525 /* Commons */,
 				FE4FEA442A38D28700007166 /* Resources */,
@@ -162,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				FEF66D7F2A43007100CE5525 /* MakerView.swift */,
+				FEF66D952A45C70F00CE5525 /* Subviews */,
 			);
 			path = Maker;
 			sourceTree = "<group>";
@@ -188,6 +196,23 @@
 				FEF66D882A4300AF00CE5525 /* WallpaperView.swift */,
 			);
 			path = Wallpaper;
+			sourceTree = "<group>";
+		};
+		FEF66D922A45C4B000CE5525 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FEF66D932A45C4BD00CE5525 /* VideosAsset.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FEF66D952A45C70F00CE5525 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				FEF66D8E2A454C8B00CE5525 /* AudioFromVideoView.swift */,
+				FEF66D962A45C72000CE5525 /* RecordAudioView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,14 +293,17 @@
 				FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */,
 				FEF66D7B2A42C0C800CE5525 /* ActivityViewController.swift in Sources */,
 				FEF66D8D2A446F0E00CE5525 /* TextModifier.swift in Sources */,
+				FEF66D942A45C4BD00CE5525 /* VideosAsset.swift in Sources */,
 				FEF66D802A43007100CE5525 /* MakerView.swift in Sources */,
 				FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */,
+				FEF66D8F2A454C8B00CE5525 /* AudioFromVideoView.swift in Sources */,
 				FEF66D832A43008400CE5525 /* MyTonesView.swift in Sources */,
 				FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */,
 				FEF66D8B2A44612600CE5525 /* Constant.swift in Sources */,
 				FE4FEA2D2A38CF7C00007166 /* RingtoneForestApp.swift in Sources */,
 				FE4FEA412A38D0F900007166 /* EnvValueExt.swift in Sources */,
 				FEF66D862A43009700CE5525 /* SettingsView.swift in Sources */,
+				FEF66D972A45C72000CE5525 /* RecordAudioView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

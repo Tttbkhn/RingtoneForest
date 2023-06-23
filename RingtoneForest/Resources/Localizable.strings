@@ -6,6 +6,14 @@
   
 */
 
+// MARK: - Title
+"delete" = "Delete";
+"continue" = "Continue";
+"cancel" = "Cancel";
+"ok" = "OK";
+"save" = "Save";
+"next" = "Next";
+
 // MARK: - Tab Bar
 "maker" = "Maker";
 "my_tone" = "My tone";
@@ -20,3 +28,64 @@
 "import_files" = "Import files";
 "media" = "Media";
 
+// MARK: - Record
+"record_audio" = "Record Audio";
+"tap_to_record" = "Tap to record";
+
+// MARK: - Audio Cutter
+"audio_cutter" = "Audio Cutter";
+"max_length" = "Max length is 30 seconds";
+"start" = "Start";
+"duration" = "Duration";
+"end" = "End";
+"fade_in" = "Fade in";
+"fade_out" = "Fade out";
+"save_ringtone" = "Save Ringtone";
+"enter_ringtone" = "Please, enter ringtone name";
+
+// MARK: - My tone
+"make_now" = "Make Now";
+"no_ringtone" = "No ringtone";
+"set_ringtone" = "Set ringtone";
+"cutter" = "Cutter";
+"rename" = "Rename";
+"rename_new" = "Please enter a new name";
+"name" = "Name";
+"delete_ringtone" = "Do you want delete this ringtone?";
+
+// MARK: - Tutorial
+"install_ringtone" = "Install Ringtone";
+"how_to_install" = "How to Install Ringtone via Garageband";
+"note_garage" = "Please note that you need to get the GarageBand app in advance. It's free";
+"step_1" = "1. Open GarageBand";
+"step_2" = "2. Long press the Ringtone
+Swipe up and click Share Button";
+"step_3" = "3. Click Ringtone button";
+"step_4" = "4. Click Export button";
+"step_5" = "5. Click Use sound as...";
+"step_6" = "6. Choose Ringtone type";
+
+// MARK: - Setting
+"setting" = "Setting";
+"join_premium" = "Join Premium Plan";
+"enjoy_features" = "Enjoy all features inside";
+"tutorials" = "Tutorials";
+"about" = "About";
+"contact_us" = "Contact Us";
+"share_app" = "Share App";
+"privacy_policy" = "Privacy Policy";
+"terms" = "Terms Of User";
+
+// MARK: - Premium
+"ringtones_pro" = "Ringtones Pro";
+"unlimited_1" = "Unlimited ringtone maker";
+"unlimited_2" = "Unlimited downloads of wallpapers";
+"unlimited_3" = "Unlimited Charging Animation";
+"remove_ads" = "Remove Ads";
+"one_week" = "One Week";
+"one_month" = "One Month";
+"one_year" = "One Year";
+"trial" = "3 day free-trial then at";
+"try" = "TRY FOR FREE";
+"restore" = "Restore";
+"warning" = "Subscriptions will be charged to your credit card through your iTunes account. Your subscription will automatically renew unless cancelled at least 24 hours before the end of your current subscription, and you can cancel a subscription during the active period. You can manage your subscription at any time, either by viewing your account in iTunes from your Mac or PC, or Account Settings on your device after purchase. For more information, please see our Terms of Use and Privacy Policy.";
