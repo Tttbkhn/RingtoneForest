@@ -8,7 +8,12 @@
 import SwiftUI
 import Photos
 
-struct AudioFromVideoView: View {
+enum MediaKind: Int {
+    case audioFromVideo, wallpaperMaker
+}
+
+struct VideoView: View {
+    var type: MediaKind
     @State var videos: [VideosAsset] = []
     @State var selectedAsset: VideosAsset? = nil
     
@@ -72,13 +77,13 @@ struct AudioFromVideoView: View {
     }
 }
 
-struct AudioFromVideoView_Previews: PreviewProvider {
+struct VideoView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioFromVideoView()
+        VideoView(type: .audioFromVideo)
     }
 }
 
-struct AudioFromVideoGridView: View {
+struct VideoGridView: View {
     var image: String
     var time: String
     var body: some View {
@@ -105,8 +110,8 @@ struct AudioFromVideoGridView: View {
     }
 }
 
-struct AudioFromVideoGridView_Previews: PreviewProvider {
+struct VideoGridView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioFromVideoGridView(image: "Asd", time: "00:35")
+        VideoGridView(image: "Asd", time: "00:35")
     }
 }
