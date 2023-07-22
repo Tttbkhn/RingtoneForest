@@ -13,6 +13,7 @@
 "ok" = "OK";
 "save" = "Save";
 "next" = "Next";
+"done" = "Done";
 
 // MARK: - Tab Bar
 "maker" = "Maker";
@@ -56,10 +57,12 @@
 // MARK: - Tutorial
 "install_ringtone" = "Install Ringtone";
 "how_to_install" = "How to Install Ringtone via Garageband";
-"note_garage" = "Please note that you need to get the GarageBand app in advance. It's free";
-"step_1" = "1. Open GarageBand";
-"step_2" = "2. Long press the Ringtone
-Swipe up and click Share Button";
+"note_garage_1" = "Please note that you need to get the ";
+"note_garage_2" = " app in advance. It's free";
+"step_1" = "1. Open ";
+"garage_band" = "GarageBand";
+"step_2" = "2. Long press the Ringtone";
+"step_2_2" = "Swipe up and click Share Button";
 "step_3" = "3. Click Ringtone button";
 "step_4" = "4. Click Export button";
 "step_5" = "5. Click Use sound as...";

@@ -66,8 +66,15 @@ internal enum Asset {
     internal static let icWallpaperSelected = ImageAsset(name: "ic_wallpaper_selected")
     internal static let icWallpaperUnselected = ImageAsset(name: "ic_wallpaper_unselected")
     internal static let imgBackground = ImageAsset(name: "img_background")
+    internal static let imgGarageBand = ImageAsset(name: "img_garage_band")
     internal static let imgNoRingtones = ImageAsset(name: "img_no_ringtones")
     internal static let imgPro = ImageAsset(name: "img_pro")
+    internal static let imgTutorial1 = ImageAsset(name: "img_tutorial_1")
+    internal static let imgTutorial2 = ImageAsset(name: "img_tutorial_2")
+    internal static let imgTutorial3 = ImageAsset(name: "img_tutorial_3")
+    internal static let imgTutorial4 = ImageAsset(name: "img_tutorial_4")
+    internal static let imgTutorial5 = ImageAsset(name: "img_tutorial_5")
+    internal static let imgTutorial6 = ImageAsset(name: "img_tutorial_6")
   }
   internal enum Colors {
     internal static let colorBG16181C = ColorAsset(name: "ColorBG#16181C")
@@ -78,6 +85,7 @@ internal enum Asset {
     internal static let colorBlueGrad2202329 = ColorAsset(name: "ColorBlueGrad2#202329")
     internal static let colorDivider707070 = ColorAsset(name: "ColorDivider707070")
     internal static let colorGray83868A = ColorAsset(name: "ColorGray#83868A")
+    internal static let colorGray7A7A7A = ColorAsset(name: "ColorGray7A7A7A")
     internal static let colorGrayBCBCBC = ColorAsset(name: "ColorGrayBCBCBC")
     internal static let colorGrayCDD2D8 = ColorAsset(name: "ColorGrayCDD2D8")
     internal static let colorGrayCFCFCF = ColorAsset(name: "ColorGrayCFCFCF")

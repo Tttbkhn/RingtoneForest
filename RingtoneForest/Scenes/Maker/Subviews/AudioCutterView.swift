@@ -124,10 +124,8 @@ struct AudioCutterView: View {
                     Image(asset: isPlaying ? Asset.Assets.icPauseRecord : Asset.Assets.icPlayRecord)
                         .padding(.bottom, 32)
                 }
-
                 
-                
-                NoFillButtonView(text: L10n.saveRingtone, width: 238, height: 60, cornerRadius: 14, textSize: 17, color: Asset.Colors.colorGreen69BE15) {
+                NoFillButtonView(text: L10n.saveRingtone, width: 238, height: 60, cornerRadius: 14, textSize: 17, color: Asset.Colors.colorGreen69BE15, lineWidth: 2) {
                     
                 }
                 .padding(.bottom, 10)

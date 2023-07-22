@@ -14,6 +14,7 @@ struct NoFillButtonView: View {
     var cornerRadius: CGFloat
     var textSize: CGFloat
     var color: ColorAsset
+    var lineWidth: CGFloat
     
     var onTap: () -> ()
     
@@ -26,7 +27,7 @@ struct NoFillButtonView: View {
                 .frame(width: width, height: height)
                 .background(
                     RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(style: StrokeStyle(lineWidth: 2))
+                    .stroke(style: StrokeStyle(lineWidth: lineWidth))
                     .fill(Color(asset: color))
                 )
         }
@@ -36,7 +37,7 @@ struct NoFillButtonView: View {
 
 struct NoFillButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        NoFillButtonView(text: L10n.delete, width: 100, height: 46, cornerRadius: 23, textSize: 14, color: Asset.Colors.colorGray83868A) {
+        NoFillButtonView(text: L10n.delete, width: 100, height: 46, cornerRadius: 23, textSize: 14, color: Asset.Colors.colorGray83868A, lineWidth: 2) {
             
         }
     }

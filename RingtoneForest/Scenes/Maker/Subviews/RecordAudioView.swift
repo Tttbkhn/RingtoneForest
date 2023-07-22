@@ -58,7 +58,7 @@ struct RecordAudioView: View {
                     }
                 } else {
                     HStack {
-                        NoFillButtonView(text: L10n.delete, width: 100, height: 46, cornerRadius: 23, textSize: 14, color: Asset.Colors.colorGray83868A) {
+                        NoFillButtonView(text: L10n.delete, width: 100, height: 46, cornerRadius: 23, textSize: 14, color: Asset.Colors.colorGray83868A, lineWidth: 2) {
                             
                         }
                         
@@ -72,7 +72,7 @@ struct RecordAudioView: View {
                         
                         Spacer()
                         
-                        NoFillButtonView(text: L10n.continue, width: 100, height: 46, cornerRadius: 23, textSize: 14, color: Asset.Colors.colorGreen69BE15) {
+                        NoFillButtonView(text: L10n.continue, width: 100, height: 46, cornerRadius: 23, textSize: 14, color: Asset.Colors.colorGreen69BE15, lineWidth: 2) {
                             
                         }
                     }

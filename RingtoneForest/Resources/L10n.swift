@@ -31,6 +31,8 @@ internal enum L10n {
   internal static let delete = L10n.tr("Localizable", "delete", fallback: "Delete")
   /// Do you want delete this ringtone?
   internal static let deleteRingtone = L10n.tr("Localizable", "delete_ringtone", fallback: "Do you want delete this ringtone?")
+  /// Done
+  internal static let done = L10n.tr("Localizable", "done", fallback: "Done")
   /// Duration
   internal static let duration = L10n.tr("Localizable", "duration", fallback: "Duration")
   /// End
@@ -45,6 +47,8 @@ internal enum L10n {
   internal static let fadeOut = L10n.tr("Localizable", "fade_out", fallback: "Fade out")
   /// Audio from Video
   internal static let fromVideo = L10n.tr("Localizable", "from_video", fallback: "Audio from Video")
+  /// GarageBand
+  internal static let garageBand = L10n.tr("Localizable", "garage_band", fallback: "GarageBand")
   /// How to Install Ringtone via Garageband
   internal static let howToInstall = L10n.tr("Localizable", "how_to_install", fallback: "How to Install Ringtone via Garageband")
   /// Import files
@@ -71,8 +75,10 @@ internal enum L10n {
   internal static let next = L10n.tr("Localizable", "next", fallback: "Next")
   /// No ringtone
   internal static let noRingtone = L10n.tr("Localizable", "no_ringtone", fallback: "No ringtone")
-  /// Please note that you need to get the GarageBand app in advance. It's free
-  internal static let noteGarage = L10n.tr("Localizable", "note_garage", fallback: "Please note that you need to get the GarageBand app in advance. It's free")
+  /// Please note that you need to get the 
+  internal static let noteGarage1 = L10n.tr("Localizable", "note_garage_1", fallback: "Please note that you need to get the ")
+  ///  app in advance. It's free
+  internal static let noteGarage2 = L10n.tr("Localizable", "note_garage_2", fallback: " app in advance. It's free")
   /// OK
   internal static let ok = L10n.tr("Localizable", "ok", fallback: "OK")
   /// One Month
@@ -107,11 +113,12 @@ internal enum L10n {
   internal static let shareApp = L10n.tr("Localizable", "share_app", fallback: "Share App")
   /// Start
   internal static let start = L10n.tr("Localizable", "start", fallback: "Start")
-  /// 1. Open GarageBand
-  internal static let step1 = L10n.tr("Localizable", "step_1", fallback: "1. Open GarageBand")
+  /// 1. Open 
+  internal static let step1 = L10n.tr("Localizable", "step_1", fallback: "1. Open ")
   /// 2. Long press the Ringtone
+  internal static let step2 = L10n.tr("Localizable", "step_2", fallback: "2. Long press the Ringtone")
   /// Swipe up and click Share Button
-  internal static let step2 = L10n.tr("Localizable", "step_2", fallback: "2. Long press the Ringtone\nSwipe up and click Share Button")
+  internal static let step22 = L10n.tr("Localizable", "step_2_2", fallback: "Swipe up and click Share Button")
   /// 3. Click Ringtone button
   internal static let step3 = L10n.tr("Localizable", "step_3", fallback: "3. Click Ringtone button")
   /// 4. Click Export button
