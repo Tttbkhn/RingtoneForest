@@ -57,6 +57,8 @@ internal enum L10n {
   internal static let installRingtone = L10n.tr("Localizable", "install_ringtone", fallback: "Install Ringtone")
   /// Join Premium Plan
   internal static let joinPremium = L10n.tr("Localizable", "join_premium", fallback: "Join Premium Plan")
+  /// Live
+  internal static let live = L10n.tr("Localizable", "live", fallback: "Live")
   /// Live Wallpaper Maker
   internal static let liveWallpaperMaker = L10n.tr("Localizable", "live_wallpaper_maker", fallback: "Live Wallpaper Maker")
   /// Make Now
@@ -113,6 +115,8 @@ internal enum L10n {
   internal static let shareApp = L10n.tr("Localizable", "share_app", fallback: "Share App")
   /// Start
   internal static let start = L10n.tr("Localizable", "start", fallback: "Start")
+  /// Static
+  internal static let `static` = L10n.tr("Localizable", "static", fallback: "Static")
   /// 1. Open 
   internal static let step1 = L10n.tr("Localizable", "step_1", fallback: "1. Open ")
   /// 2. Long press the Ringtone

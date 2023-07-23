@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FE126BF52A6C56BF008C3DB5 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE126BF42A6C56BF008C3DB5 /* TutorialView.swift */; };
+		FE126BF82A6CE45E008C3DB5 /* RenameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE126BF72A6CE45D008C3DB5 /* RenameView.swift */; };
+		FE126BFA2A6CE72F008C3DB5 /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE126BF92A6CE72F008C3DB5 /* DeleteView.swift */; };
+		FE126BFC2A6D0CAD008C3DB5 /* WallpaperDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE126BFB2A6D0CAD008C3DB5 /* WallpaperDetailView.swift */; };
 		FE3B7A2E2A477978006100C7 /* AudioCutterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3B7A2D2A477978006100C7 /* AudioCutterView.swift */; };
 		FE3B7A302A48A363006100C7 /* SaveRingtoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3B7A2F2A48A363006100C7 /* SaveRingtoneView.swift */; };
 		FE3B7A322A48A6B8006100C7 /* LiveWallpaperCutterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3B7A312A48A6B8006100C7 /* LiveWallpaperCutterView.swift */; };
@@ -40,6 +43,9 @@
 
 /* Begin PBXFileReference section */
 		FE126BF42A6C56BF008C3DB5 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		FE126BF72A6CE45D008C3DB5 /* RenameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameView.swift; sourceTree = "<group>"; };
+		FE126BF92A6CE72F008C3DB5 /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
+		FE126BFB2A6D0CAD008C3DB5 /* WallpaperDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperDetailView.swift; sourceTree = "<group>"; };
 		FE3B7A2D2A477978006100C7 /* AudioCutterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCutterView.swift; sourceTree = "<group>"; };
 		FE3B7A2F2A48A363006100C7 /* SaveRingtoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRingtoneView.swift; sourceTree = "<group>"; };
 		FE3B7A312A48A6B8006100C7 /* LiveWallpaperCutterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveWallpaperCutterView.swift; sourceTree = "<group>"; };
@@ -88,6 +94,15 @@
 				FE126BF42A6C56BF008C3DB5 /* TutorialView.swift */,
 			);
 			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		FE126BF62A6CE454008C3DB5 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				FE126BF72A6CE45D008C3DB5 /* RenameView.swift */,
+				FE126BF92A6CE72F008C3DB5 /* DeleteView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		FE4FEA202A38CF7C00007166 = {
@@ -205,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				FEF66D822A43008400CE5525 /* MyTonesView.swift */,
+				FE126BF62A6CE454008C3DB5 /* Subviews */,
 			);
 			path = "My Tones";
 			sourceTree = "<group>";
@@ -222,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				FEF66D882A4300AF00CE5525 /* WallpaperView.swift */,
+				FE126BFB2A6D0CAD008C3DB5 /* WallpaperDetailView.swift */,
 			);
 			path = Wallpaper;
 			sourceTree = "<group>";
@@ -335,10 +352,13 @@
 				FEF66D802A43007100CE5525 /* MakerView.swift in Sources */,
 				FE3B7A302A48A363006100C7 /* SaveRingtoneView.swift in Sources */,
 				FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */,
+				FE126BF82A6CE45E008C3DB5 /* RenameView.swift in Sources */,
 				FEF66D8F2A454C8B00CE5525 /* VideoView.swift in Sources */,
+				FE126BFA2A6CE72F008C3DB5 /* DeleteView.swift in Sources */,
 				FEF66D832A43008400CE5525 /* MyTonesView.swift in Sources */,
 				FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */,
 				FEF66D8B2A44612600CE5525 /* Constant.swift in Sources */,
+				FE126BFC2A6D0CAD008C3DB5 /* WallpaperDetailView.swift in Sources */,
 				FE4FEA2D2A38CF7C00007166 /* RingtoneForestApp.swift in Sources */,
 				FE4FEA412A38D0F900007166 /* EnvValueExt.swift in Sources */,
 				FEF66D862A43009700CE5525 /* SettingsView.swift in Sources */,
@@ -481,6 +501,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,6 +532,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -92,3 +92,7 @@
 "try" = "TRY FOR FREE";
 "restore" = "Restore";
 "warning" = "Subscriptions will be charged to your credit card through your iTunes account. Your subscription will automatically renew unless cancelled at least 24 hours before the end of your current subscription, and you can cancel a subscription during the active period. You can manage your subscription at any time, either by viewing your account in iTunes from your Mac or PC, or Account Settings on your device after purchase. For more information, please see our Terms of Use and Privacy Policy.";
+
+// MARK: - Wallpaper
+"live" = "Live";
+"static" = "Static";
