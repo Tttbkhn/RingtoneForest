@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct PremiumPlanView: View {
+    @State var priceWeek = ""
+    @State var priceMonth = ""
+    @State var priceYear = ""
+    
     var body: some View {
         ZStack {
             Image(asset: Asset.Assets.imgBackground)
