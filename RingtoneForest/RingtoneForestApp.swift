@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct RingtoneForestApp: App {
+//    @UIApplicationDelegateAdaptor(AppDel)
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBarView()
         }
     }
 }

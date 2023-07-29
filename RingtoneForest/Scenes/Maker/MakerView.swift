@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MakerView: View {
+    @State var goToVideoPicker = false
+    
     var body: some View {
         ZStack {
             Image(asset: Asset.Assets.imgBackground)
@@ -43,7 +45,7 @@ struct MakerView: View {
                 
                 HStack(spacing: 14) {
                     Button {
-                        
+                        goToVideoPicker = true
                     } label: {
                         MakerGridView(icon: Asset.Assets.icVideo, text: L10n.fromVideo, colors: Constant.blueGradient)
                     }
@@ -76,6 +78,7 @@ struct MakerView: View {
             }
             .padding(.horizontal, 16)
         }
+//        .fullScreenCover(item: <#T##Binding<Identifiable?>#>, content: <#T##(Identifiable) -> View#>)
     }
 }
 
