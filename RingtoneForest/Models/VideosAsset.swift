@@ -10,9 +10,10 @@ import Photos
 import UIKit
 
 struct VideosAsset: Identifiable {
-    let id = UUID()
-    let image: UIImage?
+    let id: Int
+    var image: UIImage?
     let video: PHAsset
+    let duration: String
 }
 
 struct ImagesAsset: Identifiable {

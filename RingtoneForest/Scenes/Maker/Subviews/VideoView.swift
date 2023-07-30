@@ -13,6 +13,7 @@ enum MediaKind: Int {
 }
 
 struct VideoView: View {
+    @Environment(\.presentationMode) var presentationMode
     var type: MediaKind
     @State var videos: [VideosAsset] = []
     @State var selectedAsset: VideosAsset? = nil
@@ -23,13 +24,17 @@ struct VideoView: View {
         VStack {
             ZStack {
                 HStack {
-                    Image(asset: Asset.Assets.icClose)
-                        .padding(.leading, 16)
-                    
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(asset: Asset.Assets.icClose)
+                            .padding(.leading, 16)
+                    }
+
                     Spacer()
                 }
-                
-                
+
+
                 Text(L10n.media)
                     .modifier(TextModifier(color: Asset.Colors.colorWhite90, size: 20, weight: .bold))
             }
@@ -37,40 +42,55 @@ struct VideoView: View {
             
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 0) {
-                    
+                    ForEach(videos) { video in
+                        VideoGridView(image: video.image ?? UIImage(), time: video.duration)
+                    }
                 }
             }
         }
-        .frame(maxWidth: .infinity)
+        .onAppear() {
+            fetchVideos()
+        }
+        .navigationBarHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(asset: Asset.Colors.colorBG16181C).ignoresSafeArea())
     }
     
+    
+    // TODO: first application open doesn't get videos when authorized
     func fetchVideos() {
         let semaphore = DispatchSemaphore(value: 1)
         
-        let fetchResults = PHAsset.fetchAssets(with: PHAssetMediaType.video, options: nil)
+        let format = "mediaType = %d"
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.predicate = NSPredicate(format: format, PHAssetMediaType.video.rawValue)
+        
+        let smartAlbum = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject
+        
+        guard let smartAlbum = smartAlbum else { return }
+        
+        let fetchResults = PHAsset.fetchAssets(in: smartAlbum, options: fetchOptions)
+        
         var videos: [VideosAsset] = []
+        let options = PHImageRequestOptions()
+        options.resizeMode = .exact
+        options.deliveryMode = .highQualityFormat
+        
+        let dateFormat = DateComponentsFormatter()
+        dateFormat.allowedUnits = [.minute, .second]
+        dateFormat.zeroFormattingBehavior = .pad
         
         fetchResults.enumerateObjects { object, count, stop in
-            PHCachingImageManager.default().requestImage(for: object, targetSize: CGSize(width: UIScreen.main.bounds.width / 4, height: UIScreen.main.bounds.width / 4), contentMode: .aspectFill, options: nil) { photo, info in
+            PHCachingImageManager.default().requestImage(for: object, targetSize: CGSize(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 2), contentMode: .aspectFill, options: options) { photo, info in
                 let isDegraded = (info?[PHImageResultIsDegradedKey] as? Bool) ?? false
                 if isDegraded {
                     return
                 }
-                
-                let videoAsset = VideosAsset(image: photo, video: object)
-                semaphore.wait()
+                let videoAsset = VideosAsset(id: count, image: photo, video: object, duration: dateFormat.string(from: object.duration) ?? "00:00")
                 videos.append(videoAsset)
-                semaphore.signal()
                 
                 if videos.count == fetchResults.count {
-                    self.videos = videos.sorted { asset1, asset2 in
-                        if let createDate1 = asset1.video.creationDate, let createDate2 = asset2.video.creationDate {
-                            return createDate1 > createDate2
-                        }
-                        
-                        return false
-                    }
+                    self.videos = videos.sorted { $0.id > $1.id }
                 }
             }
         }
@@ -84,21 +104,25 @@ struct VideoView_Previews: PreviewProvider {
 }
 
 struct VideoGridView: View {
-    var image: String
+    var image: UIImage
     var time: String
+    
     var body: some View {
         ZStack {
-            Image(asset: Asset.Assets.icImportFile)
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width / 4, height: UIScreen.main.bounds.width / 4)
             
             VStack {
                 Spacer()
-                
+
                 HStack {
                     Image(asset: Asset.Assets.icVideoFromMedia)
                         .padding(.leading, 5)
-                    
+
                     Spacer()
-                    
+
                     Text(time)
                         .modifier(TextModifier(color: Asset.Colors.colorWhite, size: 12, weight: .regular))
                         .padding(.trailing, 8)
@@ -109,9 +133,9 @@ struct VideoGridView: View {
         .frame(width: UIScreen.main.bounds.width / 4, height: UIScreen.main.bounds.width / 4)
     }
 }
-
-struct VideoGridView_Previews: PreviewProvider {
-    static var previews: some View {
-        VideoGridView(image: "Asd", time: "00:35")
-    }
-}
+//
+//struct VideoGridView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VideoGridView(image: "Asd", time: "00:35")
+//    }
+//}

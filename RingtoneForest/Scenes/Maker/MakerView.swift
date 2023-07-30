@@ -9,6 +9,9 @@ import SwiftUI
 
 struct MakerView: View {
     @State var goToVideoPicker = false
+    @State var goToFilePicker: Bool = false
+    @State var selectedURL: URL? = nil
+    @State var goToAudioCutter = false
     
     var body: some View {
         ZStack {
@@ -67,7 +70,7 @@ struct MakerView: View {
                     }
                     
                     Button {
-                        
+                        goToFilePicker = true
                     } label: {
                         MakerGridView(icon: Asset.Assets.icImportFile, text: L10n.importFiles, colors: Constant.greenGradient)
                     }
@@ -77,8 +80,42 @@ struct MakerView: View {
                 Spacer()
             }
             .padding(.horizontal, 16)
+            
+            if goToVideoPicker {
+                NavigationLink(destination: VideoView(type: .audioFromVideo), isActive: $goToVideoPicker) {
+                    EmptyView()
+                }
+            }
+            
+            if let selectedURL = selectedURL, goToAudioCutter {
+                NavigationLink(destination: AudioCutterView(url: selectedURL), isActive: $goToAudioCutter) {
+                    EmptyView()
+                }
+            }
         }
-//        .fullScreenCover(item: <#T##Binding<Identifiable?>#>, content: <#T##(Identifiable) -> View#>)
+        .fileImporter(isPresented: $goToFilePicker, allowedContentTypes: [.audio], allowsMultipleSelection: false) { result in
+            do {
+                guard let selectedFile: URL = try result.get().first else { return }
+                guard selectedFile.startAccessingSecurityScopedResource() else {
+                    print("Can't access")
+                    return
+                }
+                defer { selectedFile.stopAccessingSecurityScopedResource() }
+                
+                var tempURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(selectedFile.lastPathComponent)
+                if FileManager.default.fileExists(atPath: tempURL.path) {
+                    try FileManager.default.removeItem(atPath: tempURL.path)
+                }
+                
+                try FileManager.default.copyItem(atPath: selectedFile.path, toPath: tempURL.path)
+                
+                selectedURL = tempURL
+                goToAudioCutter = true
+            } catch {
+                print("Unable to read file")
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 

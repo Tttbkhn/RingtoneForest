@@ -6,17 +6,29 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+struct PowerLevel: Identifiable {
+    let id = UUID()
+    let output: Float
+}
 
 struct AudioCutterView: View {
     @Environment(\.presentationMode) var presentationMode
+    var url: URL
+    @State var avPlayer: AVPlayer? = nil
+    @State var playerTimer: Timer? = nil
     @State var timeStart = "00:00"
-    @State var duration = "00:00"
+    
+    @State var duration: Double = 0.0
     @State var timeEnd = "00:00"
     @State var percentage = 0.5
     @State var isFadeIn = false
     @State var isFadeOut = false
+    @State var progress: CGFloat = 0.0
     
     @State var isPlaying = false
+    @State var outputArr: [PowerLevel] = []
     
     var body: some View {
         ZStack {
@@ -54,7 +66,7 @@ struct AudioCutterView: View {
                     
                     Spacer()
                     
-                    timeView(label: L10n.duration, time: duration, alignment: .center)
+                    timeView(label: L10n.duration, time: "00:00", alignment: .center)
                     
                     Spacer()
                     
@@ -62,11 +74,13 @@ struct AudioCutterView: View {
                 }
                 .padding(.horizontal, 16)
                 
-                Rectangle()
-                    .fill(.green)
-                    .frame(height: 217)
-                    .padding(.top, 17)
-                    .padding(.bottom, 35)
+                ScrollView(.horizontal) {
+                    outputArrayView()
+                        .frame(height: 217)
+                        .padding(.top, 17)
+                        .padding(.bottom, 35)
+                }
+                
                 
                 ZStack(alignment: .leading) {
                     Rectangle()
@@ -134,6 +148,61 @@ struct AudioCutterView: View {
             }
             .frame(maxWidth: .infinity)
         }
+        .navigationBarHidden(true)
+        .onAppear() {
+            let playerItem = AVPlayerItem(url: url)
+            avPlayer = AVPlayer(playerItem: playerItem)
+            
+            if let avPlayer = avPlayer, let currentItem = avPlayer.currentItem {
+                self.playerTimer?.invalidate()
+                
+                playerTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { timer in
+                    if avPlayer.timeControlStatus == .paused {
+                        isPlaying = false
+                    } else {
+                        isPlaying = true
+                    }
+                    
+                    if (!currentItem.duration.seconds.isNaN) {
+                        duration = currentItem.duration.seconds
+                        let currentTime = (!currentItem.currentTime().seconds.isNaN ? currentItem.currentTime().seconds : 0.0)
+                        let notGoodProgress = CGFloat(currentTime / currentItem.duration.seconds)
+                        progress = notGoodProgress <= 0 ? 0 : notGoodProgress
+                        
+                    }
+                })
+                
+                RunLoop.current.add(playerTimer!, forMode: .tracking)
+            }
+            
+            Task {
+                do {
+                    try await AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
+                        guard let audioContext = audioContext else {
+                            fatalError("Couldn't create audioContext")
+                        }
+                        let outputArr = render(audioContext: audioContext, targetSamples: 400).map { $0 + 80 }
+                        print("Max", outputArr.max())
+                        print("Count", outputArr.count)
+                        print("Output", outputArr)
+                        
+                        self.outputArr = outputArr.map { PowerLevel(output: $0) }
+                    })
+                }
+            }
+        }
+    }
+    
+    func outputArrayView() -> some View {
+//        GeometryReader { proxy in
+            HStack(spacing: 1) {
+                ForEach(Array(outputArr.enumerated()), id: \.element.id) { index, output in
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 2, height: output.output < 0 ? 1 : CGFloat(output.output))
+                        .foregroundColor(Color.red)
+                }
+            }
+//        }
     }
     
     @ViewBuilder
@@ -149,8 +218,8 @@ struct AudioCutterView: View {
     }
 }
 
-struct AudioCutterView_Previews: PreviewProvider {
-    static var previews: some View {
-        AudioCutterView()
-    }
-}
+//struct AudioCutterView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AudioCutterView()
+//    }
+//}

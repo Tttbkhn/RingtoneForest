@@ -18,6 +18,7 @@
 		FE3B7A362A48A70D006100C7 /* FillButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3B7A352A48A70D006100C7 /* FillButtonView.swift */; };
 		FE3B7A382A48A9B0006100C7 /* SavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3B7A372A48A9B0006100C7 /* SavingView.swift */; };
 		FE3B7A3A2A48B8E5006100C7 /* PremiumPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3B7A392A48B8E5006100C7 /* PremiumPlanView.swift */; };
+		FE42C3082A76B6FF0079CEEB /* AudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE42C3072A76B6FF0079CEEB /* AudioContext.swift */; };
 		FE4FEA2D2A38CF7C00007166 /* RingtoneForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA2C2A38CF7C00007166 /* RingtoneForestApp.swift */; };
 		FE4FEA2F2A38CF7C00007166 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA2E2A38CF7C00007166 /* ContentView.swift */; };
 		FE4FEA312A38CF7D00007166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE4FEA302A38CF7D00007166 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		FE3B7A352A48A70D006100C7 /* FillButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillButtonView.swift; sourceTree = "<group>"; };
 		FE3B7A372A48A9B0006100C7 /* SavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingView.swift; sourceTree = "<group>"; };
 		FE3B7A392A48B8E5006100C7 /* PremiumPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumPlanView.swift; sourceTree = "<group>"; };
+		FE42C3072A76B6FF0079CEEB /* AudioContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContext.swift; sourceTree = "<group>"; };
 		FE4FEA292A38CF7C00007166 /* RingtoneForest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingtoneForest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE4FEA2C2A38CF7C00007166 /* RingtoneForestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtoneForestApp.swift; sourceTree = "<group>"; };
 		FE4FEA2E2A38CF7C00007166 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 				FE126BF92A6CE72F008C3DB5 /* DeleteView.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		FE42C3062A76B6F50079CEEB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FE42C3072A76B6FF0079CEEB /* AudioContext.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		FE4FEA202A38CF7C00007166 = {
@@ -182,6 +192,7 @@
 		FEF66D772A42C09600CE5525 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				FE42C3062A76B6F50079CEEB /* Helpers */,
 				FEF66D782A42C09F00CE5525 /* Extensions */,
 				FEF66D8A2A44612600CE5525 /* Constant.swift */,
 			);
@@ -342,6 +353,7 @@
 				FE4FEA2F2A38CF7C00007166 /* ContentView.swift in Sources */,
 				FE3B7A362A48A70D006100C7 /* FillButtonView.swift in Sources */,
 				FE3B7A3A2A48B8E5006100C7 /* PremiumPlanView.swift in Sources */,
+				FE42C3082A76B6FF0079CEEB /* AudioContext.swift in Sources */,
 				FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */,
 				FEF66D7B2A42C0C800CE5525 /* ActivityViewController.swift in Sources */,
 				FE126BF52A6C56BF008C3DB5 /* TutorialView.swift in Sources */,
@@ -495,7 +507,9 @@
 				DEVELOPMENT_TEAM = TS437CR4M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to access your mic to record audio";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your videos and photos to create music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -526,7 +540,9 @@
 				DEVELOPMENT_TEAM = TS437CR4M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to access your mic to record audio";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your videos and photos to create music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
