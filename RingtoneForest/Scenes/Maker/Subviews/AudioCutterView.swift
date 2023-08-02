@@ -98,20 +98,40 @@ struct AudioCutterView: View {
                 .padding(.horizontal, 16)
                 
                     ZStack(alignment: .leading) {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            outputArrayView()
-                                .background(GeometryReader { proxy in
-                                    Color.clear.preference(key: ScrollViewOffsetPreferenceKey.self, value: -proxy.frame(in: .named("scroll")).origin.x)
-                                        
-                                })
-                                .onPreferenceChange(ScrollViewOffsetPreferenceKey.self) {
-                                    testProxy = $0
+                        ScrollViewReader { reader in
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 2) {
+                                    ForEach(Array(outputArr.enumerated()), id: \.element.id) { index, output in
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(width: 1, height: output.output < 0 ? 1 : CGFloat(output.output * 2))
+                                            .foregroundColor(Color(asset: Asset.Colors.colorGreen69BE15))
+                                            .id(output.id)
+                                    }
                                 }
+                                    .background(GeometryReader { proxy in
+                                        Color.clear.preference(key: ScrollViewOffsetPreferenceKey.self, value: -proxy.frame(in: .named("scroll")).origin.x)
+                                        
+                                    })
+                                    .background(GeometryReader { proxy in
+                                        Color.clear
+                                            .onAppear {
+                                                testProxy = proxy.size.width
+                                            }
+                                    })
+                                    .onPreferenceChange(ScrollViewOffsetPreferenceKey.self) {
+                                        testProxy = $0
+                                    }
+                            }
+                            .coordinateSpace(name: "scroll")
+                            .introspect(.scrollView, on: .iOS(.v14, .v15, .v16, .v17), customize: { scrollView in
+                                scrollView.bounces = false
+                            })
+                            .onChange(of: outputArr.count, perform: { _ in
+                                if let lastId = outputArr.last?.id {
+                                    reader.scrollTo(lastId)
+                                }
+                            })
                         }
-                        .coordinateSpace(name: "scroll")
-                        .introspect(.scrollView, on: .iOS(.v14, .v15, .v16, .v17), customize: { scrollView in
-                            scrollView.bounces = false
-                        })
                         
                         Rectangle()
                             .fill(Color(asset: Asset.Colors.colorGreen69BE15).opacity(0.15))
@@ -178,7 +198,7 @@ struct AudioCutterView: View {
                 .padding(.horizontal, 16)
                 
                                 
-                Text("\(outputArr.count)")
+                Text("\(UIScreen.main.bounds.width - horizontalPadding)")
                     .foregroundColor(Color.white)
                 
                 ZStack(alignment: .leading) {
@@ -290,7 +310,7 @@ struct AudioCutterView: View {
                         guard let audioContext = audioContext else {
                             fatalError("Couldn't create audioContext")
                         }
-                        let outputArr = render(audioContext: audioContext, targetSamples: (Int(screenWidth) + 2) / 3).map { $0 + 80 }
+                        let outputArr = render(audioContext: audioContext, targetSamples: 1000).map { $0 + 80 }
                         print("Max", outputArr.max())
                         print("Count", outputArr.count)
                         print("Output", outputArr)
