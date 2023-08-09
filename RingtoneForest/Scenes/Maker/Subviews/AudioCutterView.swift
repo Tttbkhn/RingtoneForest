@@ -198,7 +198,7 @@ struct AudioCutterView: View {
                 .padding(.horizontal, 16)
                 
                                 
-                Text("\(UIScreen.main.bounds.width - horizontalPadding)")
+                Text("\(testProxy)")
                     .foregroundColor(Color.white)
                 
                 ZStack(alignment: .leading) {
@@ -310,7 +310,7 @@ struct AudioCutterView: View {
                         guard let audioContext = audioContext else {
                             fatalError("Couldn't create audioContext")
                         }
-                        let outputArr = render(audioContext: audioContext, targetSamples: 1000).map { $0 + 80 }
+                        let outputArr = render(audioContext: audioContext, targetSamples: 359).map { $0 + 80 }
                         print("Max", outputArr.max())
                         print("Count", outputArr.count)
                         print("Output", outputArr)
@@ -377,6 +377,6 @@ struct AudioCutterView: View {
 
 struct AudioCutterView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioCutterView(url: Bundle.main.url(forResource: "sample", withExtension: "mp3")!)
+        AudioCutterView(url: Bundle.main.url(forResource: "sample_2", withExtension: "mp3")!)
     }
 }

@@ -29,6 +29,7 @@
 		FE4FEA482A38D2AE00007166 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE4FEA472A38D2AD00007166 /* Localizable.strings */; };
 		FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA492A38D2F600007166 /* Assets.swift */; };
 		FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA4A2A38D2F600007166 /* L10n.swift */; };
+		FE5BC8782A839F5D00577AD4 /* sample_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */; };
 		FEF66D7B2A42C0C800CE5525 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */; };
 		FEF66D7D2A42C7F800CE5525 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEF66D7C2A42C7F800CE5525 /* Colors.xcassets */; };
 		FEF66D802A43007100CE5525 /* MakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D7F2A43007100CE5525 /* MakerView.swift */; };
@@ -72,6 +73,7 @@
 		FE4FEA472A38D2AD00007166 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FE4FEA492A38D2F600007166 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		FE4FEA4A2A38D2F600007166 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_2.mp3; sourceTree = "<group>"; };
 		FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		FEF66D7C2A42C7F800CE5525 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FEF66D7F2A43007100CE5525 /* MakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		FE4FEA442A38D28700007166 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */,
 				FEF91FB92A776C65008A22A3 /* sample.mp3 */,
 				FE4FEA302A38CF7D00007166 /* Assets.xcassets */,
 				FE4FEA492A38D2F600007166 /* Assets.swift */,
@@ -359,6 +362,7 @@
 				FE4FEA482A38D2AE00007166 /* Localizable.strings in Resources */,
 				FEF66D7D2A42C7F800CE5525 /* Colors.xcassets in Resources */,
 				FE4FEA342A38CF7D00007166 /* Preview Assets.xcassets in Resources */,
+				FE5BC8782A839F5D00577AD4 /* sample_2.mp3 in Resources */,
 				FEF91FBA2A776C65008A22A3 /* sample.mp3 in Resources */,
 				FE4FEA312A38CF7D00007166 /* Assets.xcassets in Resources */,
 			);
