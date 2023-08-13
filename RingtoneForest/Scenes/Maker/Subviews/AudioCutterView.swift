@@ -129,11 +129,11 @@ struct AudioCutterView: View {
                             .introspect(.scrollView, on: .iOS(.v14, .v15, .v16, .v17), customize: { scrollView in
                                 scrollView.bounces = false
                             })
-                            .onChange(of: outputArr.count, perform: { _ in
-                                if let lastId = outputArr.last?.id {
-                                    reader.scrollTo(lastId)
-                                }
-                            })
+//                            .onChange(of: outputArr.count, perform: { _ in
+//                                if let lastId = outputArr.last?.id {
+//                                    reader.scrollTo(lastId)
+//                                }
+//                            })
                         }
                         
                         Rectangle()
@@ -201,7 +201,7 @@ struct AudioCutterView: View {
                 .padding(.horizontal, 16)
                 
                                 
-                Text("\(waveformLength)")
+                Text("\(testProxy)")
                     .foregroundColor(Color.white)
                 
                 ZStack(alignment: .leading) {
@@ -257,7 +257,7 @@ struct AudioCutterView: View {
                     if isPlaying {
                         avPlayer?.pause()
                     } else {
-//                        avPlayer?.seek(to: CMTime(seconds: 0, preferredTimescale: 60000), toleranceBefore: .zero, toleranceAfter: .zero)
+                        avPlayer?.seek(to: CMTime(seconds: 0, preferredTimescale: 60000), toleranceBefore: .zero, toleranceAfter: .zero)
                         avPlayer?.play()
                     }
                 } label: {
@@ -277,8 +277,9 @@ struct AudioCutterView: View {
         .navigationBarHidden(true)
         .onChange(of: progress, perform: { newValue in
             if !isSliderBarEdit {
-                offsetBarSlider = progress * (screenWidth - horizontalPadding)
+                offsetBarSlider = progress * waveformLength
             }
+            offsetBar = progress * waveformLength
         })
         .onAppear() {
             let playerItem = AVPlayerItem(url: url)
