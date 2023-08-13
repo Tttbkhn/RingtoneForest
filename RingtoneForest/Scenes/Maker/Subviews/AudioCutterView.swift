@@ -41,9 +41,11 @@ struct AudioCutterView: View {
     @State var leftAccumulated = 0.0
     @State var offsetRight = 0.0
     @State var rightAccumulated = 0.0
+    @State var isWaveformLoaded = false
     
     @State var testProxy = 0.0
     @State var testCurrentTime = ""
+    
     
     var body: some View {
         let horizontalPadding: CGFloat = 32
@@ -51,6 +53,7 @@ struct AudioCutterView: View {
         let cutterBarWidth: Double = 24
         let height: CGFloat = 217
         let currentBarWidth: Double = 8.56
+        let waveformLength = Double(screenWidth - horizontalPadding)
         
         let start = Double(offsetLeft * duration / Double(screenWidth - horizontalPadding))
         
@@ -89,7 +92,7 @@ struct AudioCutterView: View {
                     
                     Spacer()
                     
-                    timeView(label: L10n.duration, time: "00:00", alignment: .center)
+                    timeView(label: L10n.duration, time: duration.asString(), alignment: .center)
                     
                     Spacer()
                     
@@ -198,7 +201,7 @@ struct AudioCutterView: View {
                 .padding(.horizontal, 16)
                 
                                 
-                Text("\(testProxy)")
+                Text("\(waveformLength)")
                     .foregroundColor(Color.white)
                 
                 ZStack(alignment: .leading) {
@@ -292,7 +295,29 @@ struct AudioCutterView: View {
                     }
                     
                     if (!currentItem.duration.seconds.isNaN) {
-                        duration = currentItem.duration.seconds
+                        if !isWaveformLoaded {
+                            duration = currentItem.duration.seconds
+                            Task {
+                                do {
+                                    let fullSpace = waveformLength / 30 * duration
+                                    let samplesLength = Int((fullSpace + waveformLength + 2) / 3)
+                                    
+                                    try await AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
+                                        guard let audioContext = audioContext else {
+                                            fatalError("Couldn't create audioContext")
+                                        }
+                                        let outputArr = render(audioContext: audioContext, targetSamples: samplesLength).map { $0 + 80 }
+                                        print("Max", outputArr.max())
+                                        print("Count", outputArr.count)
+                                        print("Output", outputArr)
+                                        
+                                        self.outputArr = outputArr.map { PowerLevel(output: $0) }
+                                    })
+                                }
+                            }
+                            isWaveformLoaded = true
+                        }
+                        
                         let currentTime = (!currentItem.currentTime().seconds.isNaN ? currentItem.currentTime().seconds : 0.0)
                         testCurrentTime = currentTime.asString()
                         let notGoodProgress = CGFloat(currentTime / currentItem.duration.seconds)
@@ -304,21 +329,7 @@ struct AudioCutterView: View {
                 RunLoop.current.add(playerTimer!, forMode: .tracking)
             }
             
-            Task {
-                do {
-                    try await AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
-                        guard let audioContext = audioContext else {
-                            fatalError("Couldn't create audioContext")
-                        }
-                        let outputArr = render(audioContext: audioContext, targetSamples: 359).map { $0 + 80 }
-                        print("Max", outputArr.max())
-                        print("Count", outputArr.count)
-                        print("Output", outputArr)
-                        
-                        self.outputArr = outputArr.map { PowerLevel(output: $0) }
-                    })
-                }
-            }
+            
         }
     }
     
