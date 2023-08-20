@@ -43,6 +43,10 @@ struct AudioCutterView: View {
     @State var rightAccumulated = 0.0
     @State var isWaveformLoaded = false
     
+    @State var isLeftBarEnable = true
+    @State var isMiddleBarEnable = true
+    @State var isRightBarEnable = true
+    
     @State var testProxy = 0.0
     @State var testCurrentTime = ""
     
@@ -279,7 +283,7 @@ struct AudioCutterView: View {
             if !isSliderBarEdit {
                 offsetBarSlider = progress * waveformLength
             }
-            offsetBar = progress * waveformLength
+            offsetBar = progress * (duration / 30) * waveformLength
         })
         .onAppear() {
             let playerItem = AVPlayerItem(url: url)
