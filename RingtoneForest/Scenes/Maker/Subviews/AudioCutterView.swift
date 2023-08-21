@@ -10,7 +10,7 @@ import AVFoundation
 import SwiftUIIntrospect
 
 struct PowerLevel: Identifiable {
-    let id = UUID()
+    let id: Int
     let output: Float
 }
 
@@ -19,10 +19,9 @@ struct AudioCutterView: View {
     var url: URL
     @State var avPlayer: AVPlayer? = nil
     @State var playerTimer: Timer? = nil
-    @State var timeStart = "00:00"
     
     @State var duration: Double = 0.0
-    @State var timeEnd = "00:00"
+    @State var durationTimeCalibration: Double = 30.0
     @State var isFadeIn = false
     @State var isFadeOut = false
     @State var progress: CGFloat = 0.0
@@ -59,7 +58,10 @@ struct AudioCutterView: View {
         let currentBarWidth: Double = 8.56
         let waveformLength = Double(screenWidth - horizontalPadding)
         
-        let start = Double(offsetLeft * duration / Double(screenWidth - horizontalPadding))
+        let offsetForStart = testProxy / waveformLength * 30
+        
+        let start = Double(offsetLeft / waveformLength * 30 + offsetForStart)
+        let end = Double((offsetRight + waveformLength) / waveformLength * 30 + offsetForStart)
         
         ZStack {
             Image(asset: Asset.Assets.imgBackground)
@@ -96,11 +98,11 @@ struct AudioCutterView: View {
                     
                     Spacer()
                     
-                    timeView(label: L10n.duration, time: duration.asString(), alignment: .center)
+                    timeView(label: L10n.duration, time: durationTimeCalibration.asString(), alignment: .center)
                     
                     Spacer()
                     
-                    timeView(label: L10n.end, time: timeEnd, alignment: .trailing)
+                    timeView(label: L10n.end, time: end.asString(), alignment: .trailing)
                 }
                 .padding(.horizontal, 16)
                 
@@ -111,7 +113,7 @@ struct AudioCutterView: View {
                                     ForEach(Array(outputArr.enumerated()), id: \.element.id) { index, output in
                                         RoundedRectangle(cornerRadius: 10)
                                             .frame(width: 1, height: output.output < 0 ? 1 : CGFloat(output.output * 2))
-                                            .foregroundColor(Color(asset: Asset.Colors.colorGreen69BE15))
+                                            .foregroundColor(output.id < 30000 ? Color(asset: Asset.Colors.colorGreen69BE15) : Color.red)
                                             .id(output.id)
                                     }
                                 }
@@ -154,12 +156,14 @@ struct AudioCutterView: View {
                                     DragGesture()
                                         .onChanged({ value in
                                             // 6 here is for calculation calibration
-                                            let calibration: Double = 6
+                                            let calibration: Double = 4
                                             let maxValueWithoutCalibration = screenWidth - (horizontalPadding / 2) - (cutterBarWidth / 2)
                                             let maxValue = maxValueWithoutCalibration - calibration
                                             offsetLeft = min(max(0, leftAccumulated + value.translation.width), maxValue)
                                             
                                             width = screenWidth - horizontalPadding - offsetLeft + offsetRight
+                                            
+                                            durationTimeCalibration = Double(Int(end) - Int(start))
                                         })
                                         .onEnded({ value in
                                             leftAccumulated = offsetLeft
@@ -178,6 +182,8 @@ struct AudioCutterView: View {
                                             offsetRight = max(min(rightAccumulated + value.translation.width, 0), -(screenWidth - horizontalPadding))
                                             
                                             width = screenWidth - horizontalPadding - offsetLeft + offsetRight
+                                            
+                                            durationTimeCalibration = Double(Int(end) - Int(start))
                                         })
                                         .onEnded({ value in
                                             rightAccumulated = offsetRight
@@ -205,7 +211,7 @@ struct AudioCutterView: View {
                 .padding(.horizontal, 16)
                 
                                 
-                Text("\(testProxy)")
+                Text("\((screenWidth - horizontalPadding) / 2)")
                     .foregroundColor(Color.white)
                 
                 ZStack(alignment: .leading) {
@@ -249,6 +255,7 @@ struct AudioCutterView: View {
                                 isSliderBarEdit = false
                                 
                                 print("offsetBarSlider", offsetBarSlider)
+//                                print("Offset Bar End", )
                             })
                     )
                     .offset(x: offsetBarSlider)
@@ -304,8 +311,9 @@ struct AudioCutterView: View {
                             duration = currentItem.duration.seconds
                             Task {
                                 do {
+                                    let calibration = 1
                                     let fullSpace = waveformLength / 30 * duration
-                                    let samplesLength = Int((fullSpace + waveformLength + 2) / 3)
+                                    let samplesLength = Int((fullSpace + 2) / 3) + calibration
                                     
                                     try await AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
                                         guard let audioContext = audioContext else {
@@ -314,9 +322,12 @@ struct AudioCutterView: View {
                                         let outputArr = render(audioContext: audioContext, targetSamples: samplesLength).map { $0 + 80 }
                                         print("Max", outputArr.max())
                                         print("Count", outputArr.count)
-                                        print("Output", outputArr)
                                         
-                                        self.outputArr = outputArr.map { PowerLevel(output: $0) }
+                                        
+                                        self.outputArr = outputArr.enumerated().map { (index, level) in
+                                            PowerLevel(id: index + index * 2, output: level) }
+                                        
+                                        print("Output", self.outputArr)
                                     })
                                 }
                             }
@@ -326,8 +337,9 @@ struct AudioCutterView: View {
                         let currentTime = (!currentItem.currentTime().seconds.isNaN ? currentItem.currentTime().seconds : 0.0)
                         testCurrentTime = currentTime.asString()
                         let notGoodProgress = CGFloat(currentTime / currentItem.duration.seconds)
-                        progress = notGoodProgress <= 0 ? 0 : notGoodProgress
-                        
+                        if !isSliderBarEdit {
+                            progress = notGoodProgress <= 0 ? 0 : notGoodProgress
+                        }
                     }
                 })
                 
@@ -343,7 +355,7 @@ struct AudioCutterView: View {
             ForEach(Array(outputArr.enumerated()), id: \.element.id) { index, output in
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 1, height: output.output < 0 ? 1 : CGFloat(output.output * 2))
-                    .foregroundColor(Color(asset: Asset.Colors.colorGreen69BE15))
+                    .foregroundColor(output.id < 30000 ? Color(asset: Asset.Colors.colorGreen69BE15) : Color.red)
             }
         }
     }
@@ -388,6 +400,7 @@ struct AudioCutterView: View {
             Text(time)
                 .modifier(TextModifier(color: Asset.Colors.colorGrayCFCFCF, size: 12, weight: .medium))
         }
+        .frame(width: (alignment == .leading || alignment == .trailing) ? 40 : 60, alignment: alignment == .leading ? .leading : .trailing)
     }
 }
 
