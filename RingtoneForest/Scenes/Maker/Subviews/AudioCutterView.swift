@@ -113,7 +113,7 @@ struct AudioCutterView: View {
                                     ForEach(Array(outputArr.enumerated()), id: \.element.id) { index, output in
                                         RoundedRectangle(cornerRadius: 10)
                                             .frame(width: 1, height: output.output < 0 ? 1 : CGFloat(output.output * 2))
-                                            .foregroundColor(output.id < 30000 ? Color(asset: Asset.Colors.colorGreen69BE15) : Color.red)
+                                            .foregroundColor(output.id < Int(waveformLength) ? Color(asset: Asset.Colors.colorGreen69BE15) : Color.red)
                                             .id(output.id)
                                     }
                                 }
@@ -135,11 +135,11 @@ struct AudioCutterView: View {
                             .introspect(.scrollView, on: .iOS(.v14, .v15, .v16, .v17), customize: { scrollView in
                                 scrollView.bounces = false
                             })
-//                            .onChange(of: outputArr.count, perform: { _ in
-//                                if let lastId = outputArr.last?.id {
-//                                    reader.scrollTo(lastId)
-//                                }
-//                            })
+                            .onChange(of: offsetBar, perform: { newValue in
+                                if outputArr.contains { $0.id == Int(newValue) } {
+                                    reader.scrollTo(Int(newValue))
+                                }
+                            })
                         }
                         
                         Rectangle()
@@ -156,7 +156,7 @@ struct AudioCutterView: View {
                                     DragGesture()
                                         .onChanged({ value in
                                             // 6 here is for calculation calibration
-                                            let calibration: Double = 4
+                                            let calibration: Double = 0
                                             let maxValueWithoutCalibration = screenWidth - (horizontalPadding / 2) - (cutterBarWidth / 2)
                                             let maxValue = maxValueWithoutCalibration - calibration
                                             offsetLeft = min(max(0, leftAccumulated + value.translation.width), maxValue)
@@ -291,6 +291,7 @@ struct AudioCutterView: View {
                 offsetBarSlider = progress * waveformLength
             }
             offsetBar = progress * (duration / 30) * waveformLength
+            print("offsetBar", offsetBar)
         })
         .onAppear() {
             let playerItem = AVPlayerItem(url: url)
