@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct RecordAudioView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var currentTime = "00:00:00"
-    @State var isRecording = true
-    @State var doneRecording = true
+    @State var isRecording = false
+    @State var doneRecording = false
+    
+    @State var session: AVAudioSession!
+    @State var recorder: AVAudioRecorder!
     
     var body: some View {
         ZStack {
@@ -52,7 +56,30 @@ struct RecordAudioView: View {
                 
                 if !doneRecording {
                     Button {
-                        isRecording.toggle()
+                        if !isRecording {
+                            do {
+                                let url = RingtoneExtractor.getRecordingPath()
+                                
+                                let fileName = url.appendingPathComponent("myRcd.m4a")
+                                
+                                RingtoneExtractor.shared.removeFileIfExists(fileURL: fileName.path)
+                                
+                                let settings = [
+                                    AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                                    AVSampleRateKey: 12000,
+                                    AVNumberOfChannelsKey: 1,
+                                    AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+                                ]
+                                
+                                recorder = try AVAudioRecorder(url: fileName, settings: settings)
+                                recorder.isMeteringEnabled = true
+                                recorder.record()
+                                
+                                isRecording = true
+                            } catch (let error) {
+                                print("Record failed \(error)")
+                            }
+                        }
                     } label: {
                         Image(asset: isRecording ? Asset.Assets.icStopRecord : Asset.Assets.icStartRecord)
                     }

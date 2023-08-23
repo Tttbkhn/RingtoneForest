@@ -30,6 +30,7 @@
 		FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA492A38D2F600007166 /* Assets.swift */; };
 		FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA4A2A38D2F600007166 /* L10n.swift */; };
 		FE5BC8782A839F5D00577AD4 /* sample_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */; };
+		FEEAF8A92A961E3B0080DCE8 /* RingtoneExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEAF8A82A961E3B0080DCE8 /* RingtoneExtractor.swift */; };
 		FEF66D7B2A42C0C800CE5525 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */; };
 		FEF66D7D2A42C7F800CE5525 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEF66D7C2A42C7F800CE5525 /* Colors.xcassets */; };
 		FEF66D802A43007100CE5525 /* MakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D7F2A43007100CE5525 /* MakerView.swift */; };
@@ -74,6 +75,7 @@
 		FE4FEA492A38D2F600007166 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		FE4FEA4A2A38D2F600007166 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_2.mp3; sourceTree = "<group>"; };
+		FEEAF8A82A961E3B0080DCE8 /* RingtoneExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtoneExtractor.swift; sourceTree = "<group>"; };
 		FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		FEF66D7C2A42C7F800CE5525 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FEF66D7F2A43007100CE5525 /* MakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				FE42C3072A76B6FF0079CEEB /* AudioContext.swift */,
+				FEEAF8A82A961E3B0080DCE8 /* RingtoneExtractor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */,
 				FEF91FBE2A77B871008A22A3 /* StringExt.swift in Sources */,
 				FEF91FC02A77BBA9008A22A3 /* ScrollViewOffset.swift in Sources */,
+				FEEAF8A92A961E3B0080DCE8 /* RingtoneExtractor.swift in Sources */,
 				FE126BF82A6CE45E008C3DB5 /* RenameView.swift in Sources */,
 				FEF66D8F2A454C8B00CE5525 /* VideoView.swift in Sources */,
 				FE126BFA2A6CE72F008C3DB5 /* DeleteView.swift in Sources */,
