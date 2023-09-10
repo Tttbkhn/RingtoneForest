@@ -12,6 +12,7 @@ struct MakerView: View {
     @State var goToFilePicker: Bool = false
     @State var selectedURL: URL? = nil
     @State var goToAudioCutter = false
+    @State var goToRecord = false
     
     var body: some View {
         ZStack {
@@ -54,7 +55,7 @@ struct MakerView: View {
                     }
                     
                     Button {
-                        
+                        goToRecord = true
                     } label: {
                         MakerGridView(icon: Asset.Assets.icRecord, text: L10n.recordAudio, colors: Constant.pinkGradient)
                     }
@@ -82,13 +83,22 @@ struct MakerView: View {
             .padding(.horizontal, 16)
             
             if goToVideoPicker {
-                NavigationLink(destination: VideoView(type: .audioFromVideo), isActive: $goToVideoPicker) {
+//                NavigationLink(destination: VideoView(type: .audioFromVideo), isActive: $goToVideoPicker) {
+//                    EmptyView()
+//                }
+                NavigationLink(destination: AudioCutterView(url: Bundle.main.url(forResource: "sample_2", withExtension: "mp3")!), isActive: $goToVideoPicker) {
                     EmptyView()
                 }
             }
             
             if let selectedURL = selectedURL, goToAudioCutter {
                 NavigationLink(destination: AudioCutterView(url: selectedURL), isActive: $goToAudioCutter) {
+                    EmptyView()
+                }
+            }
+            
+            if goToRecord {
+                NavigationLink(destination: RecordAudioView(), isActive: $goToRecord) {
                     EmptyView()
                 }
             }
@@ -102,7 +112,7 @@ struct MakerView: View {
                 }
                 defer { selectedFile.stopAccessingSecurityScopedResource() }
                 
-                var tempURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(selectedFile.lastPathComponent)
+                let tempURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(selectedFile.lastPathComponent)
                 if FileManager.default.fileExists(atPath: tempURL.path) {
                     try FileManager.default.removeItem(atPath: tempURL.path)
                 }

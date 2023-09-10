@@ -115,7 +115,7 @@ struct AudioCutterView: View {
                                     ForEach(Array(outputArr.enumerated()), id: \.element.id) { index, output in
                                         RoundedRectangle(cornerRadius: 10)
                                             .frame(width: 1, height: output.output < 0 ? 1 : CGFloat(output.output * 2))
-                                            .foregroundColor(output.id < Int(waveformLength) ? Color(asset: Asset.Colors.colorGreen69BE15) : Color.red)
+                                            .foregroundColor(Color(asset: Asset.Colors.colorGreen69BE15))
                                             .id(output.id)
                                     }
                                 }
@@ -213,10 +213,6 @@ struct AudioCutterView: View {
                 .padding(.bottom, 35)
                 .padding(.horizontal, 16)
                 
-                                
-                Text("\((screenWidth - horizontalPadding) / 2)")
-                    .foregroundColor(Color.white)
-                
                 ZStack(alignment: .leading) {
                     Rectangle()
                         .fill(Color(asset: Asset.Colors.colorGreen69BE15).opacity(0.3))
@@ -236,46 +232,46 @@ struct AudioCutterView: View {
                     }
                     .frame(width: 20, height: 20)
                     .contentShape(Rectangle())
-                    .gesture(
-                        DragGesture(coordinateSpace: .global)
-                            .onChanged({ value in
-                                print("value.translation.width", value.translation.width)
-                                isSliderBarEdit = true
-                                let progress = (offsetBarSliderAccumulated + value.translation.width) / (screenWidth - horizontalPadding)
-                                if progress >= 0 && progress <= 1 {
-                                    print("Progress", progress)
-                                    self.progress = progress
-                                    self.fakeProgress = progress
-                                    
-                                    offsetBarSlider = offsetBarSliderAccumulated + value.translation.width
-                                    
-                                    print("OffsetBar slider", offsetBarSlider)
-                                    
-                                    offsetBarForScroll = progress * (duration / 30) * waveformLength
-                                }
-                            })
-                            .onEnded({ value in
-                                offsetBarSliderAccumulated = offsetBarSlider
-                                let seconds = offsetBarSliderAccumulated / (screenWidth - horizontalPadding) * duration
-                                avPlayer?.seek(to: CMTime(seconds: seconds, preferredTimescale: 60000), toleranceBefore: .zero, toleranceAfter: .zero)
-                                
-                                isSliderBarEdit = false
-                                
-                                print("offsetBarSlider", offsetBarSlider)
-                                
-                                let progress = (offsetBarSliderAccumulated + value.translation.width) / (screenWidth - horizontalPadding)
+//                    .gesture(
+//                        DragGesture(coordinateSpace: .global)
+//                            .onChanged({ value in
+//                                print("value.translation.width", value.translation.width)
+//                                isSliderBarEdit = true
+//                                let progress = (offsetBarSliderAccumulated + value.translation.width) / (screenWidth - horizontalPadding)
 //                                if progress >= 0 && progress <= 1 {
 //                                    print("Progress", progress)
 //                                    self.progress = progress
 //                                    self.fakeProgress = progress
-//
+//                                    
+//                                    offsetBarSlider = offsetBarSliderAccumulated + value.translation.width
+//                                    
 //                                    print("OffsetBar slider", offsetBarSlider)
-//
+//                                    
 //                                    offsetBarForScroll = progress * (duration / 30) * waveformLength
 //                                }
-//                                print("Offset Bar End", )
-                            })
-                    )
+//                            })
+//                            .onEnded({ value in
+//                                offsetBarSliderAccumulated = offsetBarSlider
+//                                let seconds = offsetBarSliderAccumulated / (screenWidth - horizontalPadding) * duration
+//                                avPlayer?.seek(to: CMTime(seconds: seconds, preferredTimescale: 60000), toleranceBefore: .zero, toleranceAfter: .zero)
+//                                
+//                                isSliderBarEdit = false
+//                                
+//                                print("offsetBarSlider", offsetBarSlider)
+//                                
+//                                let progress = (offsetBarSliderAccumulated + value.translation.width) / (screenWidth - horizontalPadding)
+////                                if progress >= 0 && progress <= 1 {
+////                                    print("Progress", progress)
+////                                    self.progress = progress
+////                                    self.fakeProgress = progress
+////
+////                                    print("OffsetBar slider", offsetBarSlider)
+////
+////                                    offsetBarForScroll = progress * (duration / 30) * waveformLength
+////                                }
+////                                print("Offset Bar End", )
+//                            })
+//                    )
                     .offset(x: offsetBarSlider)
                 }
                 .padding(.horizontal, 6)
@@ -310,11 +306,8 @@ struct AudioCutterView: View {
             }
             
             let offset = progress * (duration / 30) * waveformLength
-            if offset < waveformLength {
-                offsetBar = offset
-            } else {
-                offsetBar = offsetLeft
-            }
+            let offsetForStart = testProxy / waveformLength * 30
+            offsetBar = offset - testProxy
             print("offsetBar", offsetBar)
         })
 //        .onChange(of: fakeProgress, perform: { newValue in
@@ -375,7 +368,9 @@ struct AudioCutterView: View {
                             progress = notGoodProgress <= 0 ? 0 : notGoodProgress
                         }
                         fakeProgress = notGoodProgress <= 0 ? 0 : notGoodProgress
-                        if currentTime.roundToDecimal(1) == end {
+                        let offsetForStart = testProxy / waveformLength * 30
+                        let end = Double((offsetRight + waveformLength) / waveformLength * 30 + offsetForStart)
+                        if currentTime.roundToDecimal(1) == end.roundToDecimal(1) {
                             avPlayer.pause()
                         }
                         
@@ -397,7 +392,7 @@ struct AudioCutterView: View {
             ForEach(Array(outputArr.enumerated()), id: \.element.id) { index, output in
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 1, height: output.output < 0 ? 1 : CGFloat(output.output * 2))
-                    .foregroundColor(output.id < 30000 ? Color(asset: Asset.Colors.colorGreen69BE15) : Color.red)
+                    .foregroundColor(Color(asset: Asset.Colors.colorGreen69BE15))
             }
         }
     }
