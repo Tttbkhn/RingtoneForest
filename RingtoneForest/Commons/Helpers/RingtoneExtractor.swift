@@ -111,7 +111,7 @@ class RingtoneExtractor {
         }
     }
     
-    func removeFileIfExists(fileURL: String) {
+    func removeFileIfExists(fileURL: String, _ completion: (() -> ())? = nil) {
         if FileManager.default.fileExists(atPath: fileURL) {
             print("Ringtone exists, remove \(fileURL)")
             
@@ -119,6 +119,9 @@ class RingtoneExtractor {
                 try FileManager.default.removeItem(atPath: fileURL)
             } catch (let error) {
                 print("Can't remove file at \(fileURL) \(error)")
+                if let completion = completion {
+                    completion()
+                }
             }
         }
     }

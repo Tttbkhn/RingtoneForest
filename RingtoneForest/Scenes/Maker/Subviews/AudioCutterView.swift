@@ -347,9 +347,6 @@ struct AudioCutterView: View {
                                             fatalError("Couldn't create audioContext")
                                         }
                                         let outputArr = render(audioContext: audioContext, targetSamples: samplesLength).map { $0 + 80 }
-                                        print("Max", outputArr.max())
-                                        print("Count", outputArr.count)
-                                        
                                         
                                         self.outputArr = outputArr.enumerated().map { (index, level) in
                                             PowerLevel(id: index + index * 2, output: level) }
