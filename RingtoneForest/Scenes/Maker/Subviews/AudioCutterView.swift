@@ -299,7 +299,7 @@ struct AudioCutterView: View {
                 }
                 
                 NoFillButtonView(text: L10n.saveRingtone, width: 238, height: 60, cornerRadius: 14, textSize: 17, color: Asset.Colors.colorGreen69BE15, lineWidth: 2) {
-                    
+                    showRingtoneSave = true
                 }
                 .padding(.bottom, 40)
                 
@@ -333,7 +333,11 @@ struct AudioCutterView: View {
                                 if isCreatedTmp {
                                     RingtoneExtractor.shared.removeFileIfExists(fileURL: url.path)
                                 }
-                                goToOutputFolder = true
+                                
+                                DispatchQueue.main.async {
+                                    NotificationCenter.default.post(name: NSNotification.goToMyTone, object: ["fromMake": true])
+                                }
+                                
                             default: break
                             }
                         })

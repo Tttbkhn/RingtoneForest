@@ -75,6 +75,15 @@ struct TabBarView: View {
                 .navigationViewStyle(StackNavigationViewStyle())
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.goToMyTone)) { data in
+            if let data = data.object as? NSDictionary {
+                if let fromHome = data["fromMake"] as? Bool {
+                    if fromHome {
+                        selectedTab = .myTone
+                    }
+                }
+            }
+        }
     }
     
     var tabBarView: some View {

@@ -102,6 +102,7 @@ class RingtoneExtractor {
                 print("Export cancelled")
             case .completed:
                 print("Export success")
+                ToneCacheCD.shared.addNewTone(tone: MyTone(name: outputFileName, fileName: url.path, duration: stopTime - startTime))
                 finished(exportSession.status)
             default:
                 break
