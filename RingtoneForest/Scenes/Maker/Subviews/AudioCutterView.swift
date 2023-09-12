@@ -17,6 +17,7 @@ struct PowerLevel: Identifiable {
 struct AudioCutterView: View {
     @Environment(\.presentationMode) var presentationMode
     var url: URL
+    var isCreatedTmp: Bool
     @State var avPlayer: AVPlayer? = nil
     @State var playerTimer: Timer? = nil
     
@@ -51,6 +52,13 @@ struct AudioCutterView: View {
     @State var testProxy = 0.0
     @State var testCurrentTime = ""
     
+    @State var fadeInPosition: [Double] = []
+    @State var fadeOutPosition: [Double] = []
+    @State var showRingtoneSave = false
+    
+    @State var showLoading = false
+    @State var toast: Toast? = nil
+    @State var goToOutputFolder = false
     
     var body: some View {
         let horizontalPadding: CGFloat = 32
@@ -298,7 +306,49 @@ struct AudioCutterView: View {
                 
             }
             .frame(maxWidth: .infinity)
+            
+            if showRingtoneSave {
+                SaveRingtoneView {
+                    showRingtoneSave = false
+                } onOk: { audioName in
+                    showLoading = true
+                    
+                    guard !audioName.isEmpty else {
+                        showLoading = false
+                        toast = Toast(type: .error, title: "Missing name", message: "No audio name for file")
+                        return
+                    }
+                    
+                    let asset = AVAsset(url: url)
+                    
+                    Task {
+                        await RingtoneExtractor.shared.trimAudio(asset: asset, outputFileName: audioName, startTime: start, stopTime: end, fadeIn: isFadeIn, fadeOut: isFadeOut, finished: { status in
+                            showRingtoneSave = false
+                            showLoading = false
+                            switch status {
+                            case .failed:
+                                toast = Toast(type: .error, title: "Failed", message: "Save ringtone failed. Please try again")
+                            case .completed:
+                                toast = Toast(type: .success, title: "Success", message: "Ringtone saved successfully to output folder")
+                                if isCreatedTmp {
+                                    RingtoneExtractor.shared.removeFileIfExists(fileURL: url.path)
+                                }
+                                goToOutputFolder = true
+                            default: break
+                            }
+                        })
+                    }
+                }
+
+            }
+            
+            if goToOutputFolder {
+                NavigationLink(destination: MyTonesView(), isActive: $goToOutputFolder) {
+                    EmptyView()
+                }
+            }
         }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         .navigationBarHidden(true)
         .onChange(of: progress, perform: { newValue in
             if !isSliderBarEdit {
@@ -319,6 +369,7 @@ struct AudioCutterView: View {
 //            }
 //            print("offsetBar", offsetBar)
 //        })
+        .toastView(toast: $toast)
         .onAppear() {
             let playerItem = AVPlayerItem(url: url)
             avPlayer = AVPlayer(playerItem: playerItem)
@@ -371,6 +422,18 @@ struct AudioCutterView: View {
                             avPlayer.pause()
                         }
                         
+                        if isFadeIn {
+                            if fadeInPosition.contains(currentTime.roundToDecimal(1)) {
+                                avPlayer.volume = Float((currentTime.roundToDecimal(1) - fadeInPosition.first!) / 2)
+                            }
+                        }
+                        
+                        if isFadeOut {
+                            if fadeOutPosition.contains(currentTime.roundToDecimal(1)) {
+                                avPlayer.volume = Float((fadeOutPosition.last! - currentTime.roundToDecimal(1)) / 2)
+                            }
+                        }
+                        
 //                        let offset = notGoodProgress * (duration / 30) * waveformLength
 //                        offsetBarForScroll = offset
 //                        print("offsetBarForScroll", offset)
@@ -383,6 +446,23 @@ struct AudioCutterView: View {
             
         }
     }
+    
+    func getFadeInPosition(startTime: Double) {
+        fadeInPosition.removeAll()
+        
+        for i in stride(from: startTime, through: startTime + 2.0, by: 0.2) {
+            fadeInPosition.append(i.roundToDecimal(1))
+        }
+    }
+    
+    func getFadeOutPosition(endTime: Double) {
+        fadeOutPosition.removeAll()
+        
+        for i in stride(from: endTime - 2.0, through: endTime, by: 0.2) {
+            fadeOutPosition.append(i.roundToDecimal(1))
+        }
+    }
+    
     
     func outputArrayView() -> some View {
         HStack(spacing: 2) {
@@ -405,6 +485,23 @@ struct AudioCutterView: View {
                 
                 Toggle("", isOn: $isFadeIn)
                     .labelsHidden()
+                    .onChange(of: isFadeIn) { newValue in
+                        let horizontalPadding: CGFloat = 32
+                        let screenWidth = UIScreen.main.bounds.width
+                        let waveformLength = Double(screenWidth - horizontalPadding)
+                        
+                        let offsetForStart = testProxy / waveformLength * 30
+                        let start = Double(offsetLeft / waveformLength * 30 + offsetForStart)
+                        
+                        if newValue {
+                            getFadeInPosition(startTime: start)
+                        } else {
+                            avPlayer?.volume = 1
+                        }
+                        
+                        avPlayer?.seek(to: CMTime(seconds: start, preferredTimescale: 60000), toleranceBefore: .zero, toleranceAfter: .zero)
+                        avPlayer?.play()
+                    }
             }
             
             
@@ -413,6 +510,23 @@ struct AudioCutterView: View {
             HStack(spacing: 10) {
                 Toggle("", isOn: $isFadeOut)
                     .labelsHidden()
+                    .onChange(of: isFadeOut) { newValue in
+                        let horizontalPadding: CGFloat = 32
+                        let screenWidth = UIScreen.main.bounds.width
+                        let waveformLength = Double(screenWidth - horizontalPadding)
+                        
+                        let offsetForStart = testProxy / waveformLength * 30
+                        let end = Double((offsetRight + waveformLength) / waveformLength * 30 + offsetForStart)
+                        
+                        if newValue {
+                            getFadeOutPosition(endTime: end)
+                        } else {
+                            avPlayer?.volume = 1
+                        }
+                        
+                        avPlayer?.seek(to: CMTime(seconds: end - 5, preferredTimescale: 60000), toleranceBefore: .zero, toleranceAfter: .zero)
+                        avPlayer?.play()
+                    }
                 
                 Text(L10n.fadeOut)
                     .modifier(TextModifier(color: Asset.Colors.colorWhite, size: 14, weight: .medium))
@@ -440,6 +554,6 @@ struct AudioCutterView: View {
 
 struct AudioCutterView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioCutterView(url: Bundle.main.url(forResource: "sample_2", withExtension: "mp3")!)
+        AudioCutterView(url: Bundle.main.url(forResource: "sample_2", withExtension: "mp3")!, isCreatedTmp: false)
     }
 }

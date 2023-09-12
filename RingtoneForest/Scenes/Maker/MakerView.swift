@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct MakerView: View {
     @State var goToVideoPicker = false
@@ -13,6 +14,8 @@ struct MakerView: View {
     @State var selectedURL: URL? = nil
     @State var goToAudioCutter = false
     @State var goToRecord = false
+    
+    @State var toast: Toast? = nil
     
     var body: some View {
         ZStack {
@@ -37,11 +40,11 @@ struct MakerView: View {
                                 Color(asset: Asset.Colors.colorTabBG202329)
                                     .blur(radius: 30)
                                     .brightness(0.7)
-                                .frame(width: 36, height: 36)
-                                .cornerRadius(11)
+                                    .frame(width: 36, height: 36)
+                                    .cornerRadius(11)
                             )
                     }
-
+                    
                     
                 }
                 .padding(.top, 28)
@@ -55,11 +58,17 @@ struct MakerView: View {
                     }
                     
                     Button {
-                        goToRecord = true
+                        AVAudioSession.sharedInstance().requestRecordPermission { status in
+                            if !status {
+                                toast = Toast(type: .error, title: "Permission denied", message: "Please accept recording permission to record")
+                            } else {
+                                goToRecord = true
+                            }
+                        }
                     } label: {
                         MakerGridView(icon: Asset.Assets.icRecord, text: L10n.recordAudio, colors: Constant.pinkGradient)
                     }
-
+                    
                 }
                 .padding(.bottom, 14)
                 
@@ -75,7 +84,7 @@ struct MakerView: View {
                     } label: {
                         MakerGridView(icon: Asset.Assets.icImportFile, text: L10n.importFiles, colors: Constant.greenGradient)
                     }
-
+                    
                 }
                 
                 Spacer()
@@ -83,16 +92,13 @@ struct MakerView: View {
             .padding(.horizontal, 16)
             
             if goToVideoPicker {
-//                NavigationLink(destination: VideoView(type: .audioFromVideo), isActive: $goToVideoPicker) {
-//                    EmptyView()
-//                }
-                NavigationLink(destination: AudioCutterView(url: Bundle.main.url(forResource: "sample_2", withExtension: "mp3")!), isActive: $goToVideoPicker) {
+                NavigationLink(destination: VideoView(type: .audioFromVideo), isActive: $goToVideoPicker) {
                     EmptyView()
                 }
             }
             
             if let selectedURL = selectedURL, goToAudioCutter {
-                NavigationLink(destination: AudioCutterView(url: selectedURL), isActive: $goToAudioCutter) {
+                NavigationLink(destination: AudioCutterView(url: selectedURL, isCreatedTmp: true), isActive: $goToAudioCutter) {
                     EmptyView()
                 }
             }
@@ -103,6 +109,7 @@ struct MakerView: View {
                 }
             }
         }
+        .toastView(toast: $toast)
         .fileImporter(isPresented: $goToFilePicker, allowedContentTypes: [.audio], allowsMultipleSelection: false) { result in
             do {
                 guard let selectedFile: URL = try result.get().first else { return }

@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct FloatData: Identifiable {
+struct FloatData: Identifiable, Hashable {
     let id = UUID().uuidString
     let data: Float
 }
@@ -24,9 +24,12 @@ struct RecordAudioView: View {
     
     @State var audioPlayer: AVAudioPlayer? = nil
     
-    @State var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     
     @State var volumeArr: [FloatData] = []
+    @State var arrIndex = 0
+    
+    @State var goToAudioCutter = false
     
     var body: some View {
         ZStack {
@@ -58,14 +61,35 @@ struct RecordAudioView: View {
                     .padding(.top, 100)
                 
                 ZStack {
-                    ForEach(volumeArr) { value in
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 1, height: CGFloat(value.data))
-                            .foregroundColor(Color(asset: Asset.Colors.colorGreen69BE15))
-                            .id(value.id)
+                    ScrollViewReader { reader in
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(spacing: 2) {
+                                Spacer()
+                                    .frame(width: UIScreen.main.bounds.width / 2)
+                                
+                                ForEach(volumeArr) { value in
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 1, height: CGFloat(value.data))
+                                        .foregroundColor(Color(asset: Asset.Colors.colorGreen69BE15))
+                                        .id(value.id)
+                                }
+                            }
+                        }
+                        .onChange(of: volumeArr.count) { newValue in
+                            reader.scrollTo(volumeArr.last?.id)
+                        }
+                        .onReceive(timer, perform: {_ in
+                            if audioPlayer?.isPlaying ?? false {
+                                if !volumeArr.isEmpty, volumeArr[arrIndex] != volumeArr.last {
+                                    reader.scrollTo(volumeArr[arrIndex].id, anchor: .trailing)
+                                    arrIndex += 1
+                                }
+                            }
+                        })
                     }
                 }
                 .frame(height: 150)
+                .padding(.top, 76.5)
                 
                 Spacer()
                 
@@ -109,13 +133,16 @@ struct RecordAudioView: View {
                 } else {
                     HStack {
                         NoFillButtonView(text: L10n.delete, width: 100, height: 46, cornerRadius: 23, textSize: 14, color: Asset.Colors.colorGray83868A, lineWidth: 2) {
-                            
+                            doneRecording = false
+                            isRecording = false
+                            arrIndex = 0
+                            volumeArr.removeAll()
                         }
                         
                         Spacer()
                         
                         Button {
-                            doneRecording.toggle()
+                            playRecord()
                         } label: {
                             Image(asset: Asset.Assets.icPlayRecord)
                         }
@@ -130,14 +157,21 @@ struct RecordAudioView: View {
                 }
                 
                 
-                Text(!isRecording ? L10n.tapToRecord : "")
+                Text(!isRecording && !doneRecording ? L10n.tapToRecord : "")
                     .modifier(TextModifier(color: Asset.Colors.colorGray83868A, size: 14, weight: .regular))
                     .padding(.top, 19)
                     .padding(.bottom, 45)
-                
-                
             }
             .frame(maxWidth: .infinity)
+            
+            if goToAudioCutter {
+                let url = RingtoneExtractor.getRecordingPath()
+                let fileName = url.appendingPathComponent("myRcd.m4a")
+                
+                NavigationLink(destination: AudioCutterView(url: fileName, isCreatedTmp: false), isActive: $goToAudioCutter) {
+                    EmptyView()
+                }
+            }
         }
         .navigationBarHidden(true)
         .onChange(of: doneRecording) { newValue in
@@ -191,9 +225,17 @@ struct RecordAudioView: View {
     func startAnimation() {
         if isRecording {
             let decibels = recorder.averagePower(forChannel: 0)
-            let value = convertdBFStodB(dBFS: decibels) / 0.7 * 150
-            
-            volumeArr.append(FloatData(data: value))
+            let value = convertdBFStodB(dBFS: decibels) / 0.8 * 150
+            var calibratedValue = value
+            if value <= 10 {
+                calibratedValue = 1
+            } else if value < 150 {
+                calibratedValue = value - 10
+            } else if value >= 150 {
+                calibratedValue = 150
+            }
+            print("Value 2", calibratedValue)
+            volumeArr.append(FloatData(data: calibratedValue))
         }
     }
     
@@ -221,6 +263,8 @@ struct RecordAudioView: View {
             return
         }
         
+        arrIndex = 0
+        audioPlayer?.currentTime = 0
         audioPlayer?.play()
     }
     

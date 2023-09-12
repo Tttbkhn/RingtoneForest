@@ -14,6 +14,7 @@ struct VideosAsset: Identifiable {
     var image: UIImage?
     let video: PHAsset
     let duration: String
+    let url: AVURLAsset?
 }
 
 struct ImagesAsset: Identifiable {

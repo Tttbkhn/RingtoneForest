@@ -30,6 +30,10 @@
 		FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA492A38D2F600007166 /* Assets.swift */; };
 		FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA4A2A38D2F600007166 /* L10n.swift */; };
 		FE5BC8782A839F5D00577AD4 /* sample_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */; };
+		FEC6F5202AAF9850005F23F9 /* FancyToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F51F2AAF9850005F23F9 /* FancyToast.swift */; };
+		FEC6F5222AAF9902005F23F9 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F5212AAF9902005F23F9 /* ToastView.swift */; };
+		FEC6F5242AAF995D005F23F9 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F5232AAF995D005F23F9 /* ToastModifier.swift */; };
+		FEC6F5262AAF9A4B005F23F9 /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F5252AAF9A4B005F23F9 /* ViewExt.swift */; };
 		FEEAF8A92A961E3B0080DCE8 /* RingtoneExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEAF8A82A961E3B0080DCE8 /* RingtoneExtractor.swift */; };
 		FEF66D7B2A42C0C800CE5525 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */; };
 		FEF66D7D2A42C7F800CE5525 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEF66D7C2A42C7F800CE5525 /* Colors.xcassets */; };
@@ -75,6 +79,10 @@
 		FE4FEA492A38D2F600007166 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		FE4FEA4A2A38D2F600007166 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_2.mp3; sourceTree = "<group>"; };
+		FEC6F51F2AAF9850005F23F9 /* FancyToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyToast.swift; sourceTree = "<group>"; };
+		FEC6F5212AAF9902005F23F9 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		FEC6F5232AAF995D005F23F9 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
+		FEC6F5252AAF9A4B005F23F9 /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
 		FEEAF8A82A961E3B0080DCE8 /* RingtoneExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtoneExtractor.swift; sourceTree = "<group>"; };
 		FEF66D7A2A42C0C800CE5525 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		FEF66D7C2A42C7F800CE5525 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -208,6 +216,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FEC6F51E2AAF9839005F23F9 /* ToastView */ = {
+			isa = PBXGroup;
+			children = (
+				FEC6F51F2AAF9850005F23F9 /* FancyToast.swift */,
+				FEC6F5212AAF9902005F23F9 /* ToastView.swift */,
+				FEC6F5232AAF995D005F23F9 /* ToastModifier.swift */,
+			);
+			path = ToastView;
+			sourceTree = "<group>";
+		};
 		FEF66D772A42C09600CE5525 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +241,7 @@
 			children = (
 				FE4FEA402A38D0F900007166 /* EnvValueExt.swift */,
 				FEF91FBB2A77B7F6008A22A3 /* DoubleExt.swift */,
+				FEC6F5252AAF9A4B005F23F9 /* ViewExt.swift */,
 				FEF91FBD2A77B871008A22A3 /* StringExt.swift */,
 			);
 			path = Extensions;
@@ -235,6 +254,7 @@
 				FE3B7A332A48A6EC006100C7 /* NoFillButtonView.swift */,
 				FE3B7A352A48A70D006100C7 /* FillButtonView.swift */,
 				FEF91FBF2A77BBA9008A22A3 /* ScrollViewOffset.swift */,
+				FEC6F51E2AAF9839005F23F9 /* ToastView */,
 				FEF66D8C2A446F0D00CE5525 /* TextModifier.swift */,
 				FEF91FB72A776987008A22A3 /* LoadingView.swift */,
 			);
@@ -384,15 +404,18 @@
 				FE4FEA2F2A38CF7C00007166 /* ContentView.swift in Sources */,
 				FEF91FBC2A77B7F6008A22A3 /* DoubleExt.swift in Sources */,
 				FE3B7A362A48A70D006100C7 /* FillButtonView.swift in Sources */,
+				FEC6F5242AAF995D005F23F9 /* ToastModifier.swift in Sources */,
 				FE3B7A3A2A48B8E5006100C7 /* PremiumPlanView.swift in Sources */,
 				FE42C3082A76B6FF0079CEEB /* AudioContext.swift in Sources */,
 				FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */,
+				FEC6F5202AAF9850005F23F9 /* FancyToast.swift in Sources */,
 				FEF66D7B2A42C0C800CE5525 /* ActivityViewController.swift in Sources */,
 				FE126BF52A6C56BF008C3DB5 /* TutorialView.swift in Sources */,
 				FEF66D8D2A446F0E00CE5525 /* TextModifier.swift in Sources */,
 				FE3B7A322A48A6B8006100C7 /* LiveWallpaperCutterView.swift in Sources */,
 				FE3B7A2E2A477978006100C7 /* AudioCutterView.swift in Sources */,
 				FEF66D942A45C4BD00CE5525 /* VideosAsset.swift in Sources */,
+				FEC6F5222AAF9902005F23F9 /* ToastView.swift in Sources */,
 				FEF66D802A43007100CE5525 /* MakerView.swift in Sources */,
 				FE3B7A302A48A363006100C7 /* SaveRingtoneView.swift in Sources */,
 				FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */,
@@ -403,6 +426,7 @@
 				FEF66D8F2A454C8B00CE5525 /* VideoView.swift in Sources */,
 				FE126BFA2A6CE72F008C3DB5 /* DeleteView.swift in Sources */,
 				FEF66D832A43008400CE5525 /* MyTonesView.swift in Sources */,
+				FEC6F5262AAF9A4B005F23F9 /* ViewExt.swift in Sources */,
 				FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */,
 				FEF66D8B2A44612600CE5525 /* Constant.swift in Sources */,
 				FEF91FB82A776987008A22A3 /* LoadingView.swift in Sources */,
@@ -559,6 +583,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tttbkhn.ringtoneforest1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -592,6 +619,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tttbkhn.ringtoneforest1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
