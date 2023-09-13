@@ -112,7 +112,7 @@ struct MakerView: View {
             }
             
             if let selectedURL = selectedURL, goToAudioCutter {
-                NavigationLink(destination: AudioCutterView(url: selectedURL, isCreatedTmp: true), isActive: $goToAudioCutter) {
+                NavigationLink(destination: AudioCutterView(url: selectedURL, isCreatedTmp: true, fromMyTone: false), isActive: $goToAudioCutter) {
                     EmptyView()
                 }
             }

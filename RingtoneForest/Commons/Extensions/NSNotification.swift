@@ -9,4 +9,5 @@ import Foundation
 
 extension NSNotification {
     static let goToMyTone = Notification.Name("goToMyTone")
+    static let goToMaker = Notification.Name("goToMaker")
 }

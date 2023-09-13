@@ -1,0 +1,24 @@
+PODS:
+  - mobile-ffmpeg-full (4.4)
+  - MobileVLCKit (3.5.1)
+  - Tiercel (3.2.5)
+
+DEPENDENCIES:
+  - mobile-ffmpeg-full (~> 4.4)
+  - MobileVLCKit
+  - Tiercel
+
+SPEC REPOS:
+  trunk:
+    - mobile-ffmpeg-full
+    - MobileVLCKit
+    - Tiercel
+
+SPEC CHECKSUMS:
+  mobile-ffmpeg-full: 505c583d91ac1c4fb2b015787e69d83f83fb8f29
+  MobileVLCKit: 144d5f565512d1147d63b0fa1379231b3fd66535
+  Tiercel: c0a73f876a72800333b15f4e7e48791f4ad21e90
+
+PODFILE CHECKSUM: 37c15ad1b0ce56353d0a462e641279486a076f83
+
+COCOAPODS: 1.12.1

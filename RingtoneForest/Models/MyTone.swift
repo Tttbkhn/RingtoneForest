@@ -10,6 +10,5 @@ import Foundation
 struct MyTone: Identifiable, Equatable {
     var id = UUID().uuidString
     var name: String
-    var fileName: String
     let duration: Double
 }

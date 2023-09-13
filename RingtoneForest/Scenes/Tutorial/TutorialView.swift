@@ -190,6 +190,7 @@ struct TutorialView: View {
                 
             }
         }
+        .navigationBarHidden(true)
     }
 }
 

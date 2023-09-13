@@ -45,12 +45,15 @@ struct TabBarView: View {
                             tabBarView
                         }
                     }
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
             case .wallpaper:
                 NavigationView {
                     ZStack {
-                        WallpaperView()
+                        let wallpaperVM = AppDelegate.container.resolve(WallpaperViewModel.self)!
+                        
+                        WallpaperView(viewModel: wallpaperVM)
                         
                         VStack {
                             Spacer()
@@ -83,6 +86,9 @@ struct TabBarView: View {
                     }
                 }
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.goToMaker)) { _ in
+            selectedTab = .maker
         }
     }
     

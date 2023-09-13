@@ -27,6 +27,13 @@ struct RenameView: View {
                 
                 Spacer()
                 
+                CompatTextField("Name", firstResponder: true, text: $renameString, returnKeyType: .done, size: 16, textPlaceholderColor: Asset.Colors.colorDivider3C3C4336, textColor: Asset.Colors.colorBlack)
+                    .padding(.all, 4)
+                    .background(Color.white.cornerRadius(5).background(RoundedRectangle(cornerRadius: 5).stroke(Color(asset: Asset.Colors.colorDivider3C3C4336))))
+                    .padding(.horizontal, 18)
+                    .frame(height: 34)
+                    .padding(.bottom, 20)
+                
                 Color(asset: Asset.Colors.colorDivider3C3C4336)
                     .frame(height: 0.55)
                 

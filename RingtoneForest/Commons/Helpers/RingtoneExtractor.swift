@@ -31,6 +31,10 @@ class RingtoneExtractor {
         return ringtonePath
     }
     
+    static func getMyTonePath(name: String) -> URL {
+        return RingtoneExtractor.getRingtonePath().appendingPathComponent("\(name).m4a")
+    }
+    
     static func getRecordingPath() -> URL {
         let recordingPath = getDocumentsDirectory().appendingPathComponent("Recordings")
         
@@ -102,7 +106,7 @@ class RingtoneExtractor {
                 print("Export cancelled")
             case .completed:
                 print("Export success")
-                ToneCacheCD.shared.addNewTone(tone: MyTone(name: outputFileName, fileName: url.path, duration: stopTime - startTime))
+                ToneCacheCD.shared.addNewTone(tone: MyTone(name: outputFileName, duration: stopTime - startTime))
                 finished(exportSession.status)
             default:
                 break

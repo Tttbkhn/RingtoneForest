@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		778E748C8EF82898707458C1 /* Pods_RingtoneForest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280F1B3F0DAA41867146FD65 /* Pods_RingtoneForest.framework */; };
 		FE126BF52A6C56BF008C3DB5 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE126BF42A6C56BF008C3DB5 /* TutorialView.swift */; };
 		FE126BF82A6CE45E008C3DB5 /* RenameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE126BF72A6CE45D008C3DB5 /* RenameView.swift */; };
 		FE126BFA2A6CE72F008C3DB5 /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE126BF92A6CE72F008C3DB5 /* DeleteView.swift */; };
@@ -36,8 +37,6 @@
 		FE7AD1082AB0455C00680CF1 /* Wallpaper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1062AB0455C00680CF1 /* Wallpaper.xcdatamodeld */; };
 		FE7AD10E2AB046D500680CF1 /* ToneCacheCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD10D2AB046D500680CF1 /* ToneCacheCD.swift */; };
 		FE7AD1102AB04A8500680CF1 /* MyTone.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD10F2AB04A8500680CF1 /* MyTone.swift */; };
-		FE7AD1132AB04BFF00680CF1 /* CTone+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1112AB04BFF00680CF1 /* CTone+CoreDataClass.swift */; };
-		FE7AD1142AB04BFF00680CF1 /* CTone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1122AB04BFF00680CF1 /* CTone+CoreDataProperties.swift */; };
 		FE7AD1172AB04D9800680CF1 /* ProductStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1152AB04D9700680CF1 /* ProductStore+CoreDataClass.swift */; };
 		FE7AD1182AB04D9800680CF1 /* ProductStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1162AB04D9700680CF1 /* ProductStore+CoreDataProperties.swift */; };
 		FE7AD11A2AB04DAB00680CF1 /* ProductStoreCacheCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1192AB04DAB00680CF1 /* ProductStoreCacheCD.swift */; };
@@ -47,6 +46,27 @@
 		FE7AD1222AB06BAE00680CF1 /* NSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1212AB06BAE00680CF1 /* NSNotification.swift */; };
 		FE7AD1242AB0757E00680CF1 /* GarageBandConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1232AB0757E00680CF1 /* GarageBandConverter.swift */; };
 		FE7AD1262AB075D800680CF1 /* projectData in Resources */ = {isa = PBXBuildFile; fileRef = FE7AD1252AB075D800680CF1 /* projectData */; };
+		FE7AD1292AB15F1900680CF1 /* CTone+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1272AB15F1900680CF1 /* CTone+CoreDataClass.swift */; };
+		FE7AD12A2AB15F1900680CF1 /* CTone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1282AB15F1900680CF1 /* CTone+CoreDataProperties.swift */; };
+		FE7AD12C2AB1733300680CF1 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD12B2AB1733300680CF1 /* APICall.swift */; };
+		FE7AD12E2AB174E900680CF1 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD12D2AB174E900680CF1 /* WebRepository.swift */; };
+		FE7AD1302AB1751C00680CF1 /* TokenLDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD12F2AB1751C00680CF1 /* TokenLDS.swift */; };
+		FE7AD1322AB1767100680CF1 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1312AB1767100680CF1 /* Token.swift */; };
+		FE7AD1342AB1776D00680CF1 /* WallpaperRDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1332AB1776D00680CF1 /* WallpaperRDS.swift */; };
+		FE7AD1362AB1786000680CF1 /* WallpaperCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1352AB1786000680CF1 /* WallpaperCategories.swift */; };
+		FE7AD1392AB17B1400680CF1 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FE7AD1382AB17B1400680CF1 /* Swinject */; };
+		FE7AD13C2AB17B2600680CF1 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = FE7AD13B2AB17B2600680CF1 /* SwinjectAutoregistration */; };
+		FE7AD13F2AB17B7700680CF1 /* Container+Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD13E2AB17B7700680CF1 /* Container+Dependencies.swift */; };
+		FE7AD1412AB17D9300680CF1 /* WallpaperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1402AB17D9300680CF1 /* WallpaperViewModel.swift */; };
+		FE7AD1442AB1809900680CF1 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = FE7AD1432AB1809900680CF1 /* Nuke */; };
+		FE7AD1462AB1809900680CF1 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = FE7AD1452AB1809900680CF1 /* NukeExtensions */; };
+		FE7AD1482AB1809900680CF1 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE7AD1472AB1809900680CF1 /* NukeUI */; };
+		FE7AD14B2AB19B0700680CF1 /* WallpaperVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD14A2AB19B0700680CF1 /* WallpaperVideoPlayer.swift */; };
+		FE7AD14D2AB19BC300680CF1 /* VLCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD14C2AB19BC300680CF1 /* VLCPlayerView.swift */; };
+		FE7AD14F2AB1A13D00680CF1 /* LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD14E2AB1A13D00680CF1 /* LivePhoto.swift */; };
+		FE7AD1512AB1AC0900680CF1 /* VideoExtractorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1502AB1AC0900680CF1 /* VideoExtractorView.swift */; };
+		FE7AD1532AB1B4D600680CF1 /* PHAssetExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1522AB1B4D600680CF1 /* PHAssetExt.swift */; };
+		FE7AD1552AB1C3B700680CF1 /* AVPlayerItemExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1542AB1C3B700680CF1 /* AVPlayerItemExt.swift */; };
 		FEC6F5202AAF9850005F23F9 /* FancyToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F51F2AAF9850005F23F9 /* FancyToast.swift */; };
 		FEC6F5222AAF9902005F23F9 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F5212AAF9902005F23F9 /* ToastView.swift */; };
 		FEC6F5242AAF995D005F23F9 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F5232AAF995D005F23F9 /* ToastModifier.swift */; };
@@ -72,6 +92,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		063EA2AFFF1F6039E9855271 /* Pods-RingtoneForest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RingtoneForest.debug.xcconfig"; path = "Target Support Files/Pods-RingtoneForest/Pods-RingtoneForest.debug.xcconfig"; sourceTree = "<group>"; };
+		280F1B3F0DAA41867146FD65 /* Pods_RingtoneForest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RingtoneForest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46285DA7EE2760F7B5EAE06A /* Pods-RingtoneForest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RingtoneForest.release.xcconfig"; path = "Target Support Files/Pods-RingtoneForest/Pods-RingtoneForest.release.xcconfig"; sourceTree = "<group>"; };
 		FE126BF42A6C56BF008C3DB5 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		FE126BF72A6CE45D008C3DB5 /* RenameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameView.swift; sourceTree = "<group>"; };
 		FE126BF92A6CE72F008C3DB5 /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
@@ -102,8 +125,6 @@
 		FE7AD1072AB0455C00680CF1 /* Wallpaper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wallpaper.xcdatamodel; sourceTree = "<group>"; };
 		FE7AD10D2AB046D500680CF1 /* ToneCacheCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneCacheCD.swift; sourceTree = "<group>"; };
 		FE7AD10F2AB04A8500680CF1 /* MyTone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTone.swift; sourceTree = "<group>"; };
-		FE7AD1112AB04BFF00680CF1 /* CTone+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CTone+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FE7AD1122AB04BFF00680CF1 /* CTone+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CTone+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FE7AD1152AB04D9700680CF1 /* ProductStore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductStore+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FE7AD1162AB04D9700680CF1 /* ProductStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FE7AD1192AB04DAB00680CF1 /* ProductStoreCacheCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStoreCacheCD.swift; sourceTree = "<group>"; };
@@ -113,6 +134,23 @@
 		FE7AD1212AB06BAE00680CF1 /* NSNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotification.swift; sourceTree = "<group>"; };
 		FE7AD1232AB0757E00680CF1 /* GarageBandConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageBandConverter.swift; sourceTree = "<group>"; };
 		FE7AD1252AB075D800680CF1 /* projectData */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = projectData; sourceTree = "<group>"; };
+		FE7AD1272AB15F1900680CF1 /* CTone+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CTone+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FE7AD1282AB15F1900680CF1 /* CTone+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CTone+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FE7AD12B2AB1733300680CF1 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		FE7AD12D2AB174E900680CF1 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
+		FE7AD12F2AB1751C00680CF1 /* TokenLDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenLDS.swift; sourceTree = "<group>"; };
+		FE7AD1312AB1767100680CF1 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		FE7AD1332AB1776D00680CF1 /* WallpaperRDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperRDS.swift; sourceTree = "<group>"; };
+		FE7AD1352AB1786000680CF1 /* WallpaperCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperCategories.swift; sourceTree = "<group>"; };
+		FE7AD13E2AB17B7700680CF1 /* Container+Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Dependencies.swift"; sourceTree = "<group>"; };
+		FE7AD1402AB17D9300680CF1 /* WallpaperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperViewModel.swift; sourceTree = "<group>"; };
+		FE7AD1492AB1957300680CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FE7AD14A2AB19B0700680CF1 /* WallpaperVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperVideoPlayer.swift; sourceTree = "<group>"; };
+		FE7AD14C2AB19BC300680CF1 /* VLCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerView.swift; sourceTree = "<group>"; };
+		FE7AD14E2AB1A13D00680CF1 /* LivePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePhoto.swift; sourceTree = "<group>"; };
+		FE7AD1502AB1AC0900680CF1 /* VideoExtractorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExtractorView.swift; sourceTree = "<group>"; };
+		FE7AD1522AB1B4D600680CF1 /* PHAssetExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetExt.swift; sourceTree = "<group>"; };
+		FE7AD1542AB1C3B700680CF1 /* AVPlayerItemExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItemExt.swift; sourceTree = "<group>"; };
 		FEC6F51F2AAF9850005F23F9 /* FancyToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyToast.swift; sourceTree = "<group>"; };
 		FEC6F5212AAF9902005F23F9 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		FEC6F5232AAF995D005F23F9 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
@@ -142,12 +180,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEF91FC32A77BD67008A22A3 /* SwiftUIIntrospect in Frameworks */,
+				FE7AD1392AB17B1400680CF1 /* Swinject in Frameworks */,
+				FE7AD13C2AB17B2600680CF1 /* SwinjectAutoregistration in Frameworks */,
+				FE7AD1482AB1809900680CF1 /* NukeUI in Frameworks */,
+				FE7AD1442AB1809900680CF1 /* Nuke in Frameworks */,
+				FE7AD1462AB1809900680CF1 /* NukeExtensions in Frameworks */,
+				778E748C8EF82898707458C1 /* Pods_RingtoneForest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AA82EEB0FC1B29A6F9C8481 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				280F1B3F0DAA41867146FD65 /* Pods_RingtoneForest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CC04AE8D91CC6B1D0776396 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				063EA2AFFF1F6039E9855271 /* Pods-RingtoneForest.debug.xcconfig */,
+				46285DA7EE2760F7B5EAE06A /* Pods-RingtoneForest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FE126BF32A6C56A4008C3DB5 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +241,8 @@
 			children = (
 				FE4FEA2B2A38CF7C00007166 /* RingtoneForest */,
 				FE4FEA2A2A38CF7C00007166 /* Products */,
+				5CC04AE8D91CC6B1D0776396 /* Pods */,
+				1AA82EEB0FC1B29A6F9C8481 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -194,6 +257,8 @@
 		FE4FEA2B2A38CF7C00007166 /* RingtoneForest */ = {
 			isa = PBXGroup;
 			children = (
+				FE7AD1492AB1957300680CF1 /* Info.plist */,
+				FE7AD13D2AB17B4000680CF1 /* Injected */,
 				FE7AD0F92AB0413600680CF1 /* CoreData */,
 				FEF66D922A45C4B000CE5525 /* Models */,
 				FE4FEA2C2A38CF7C00007166 /* RingtoneForestApp.swift */,
@@ -279,8 +344,8 @@
 			isa = PBXGroup;
 			children = (
 				FE7AD1002AB0444600680CF1 /* Tone.xcdatamodeld */,
-				FE7AD1112AB04BFF00680CF1 /* CTone+CoreDataClass.swift */,
-				FE7AD1122AB04BFF00680CF1 /* CTone+CoreDataProperties.swift */,
+				FE7AD1272AB15F1900680CF1 /* CTone+CoreDataClass.swift */,
+				FE7AD1282AB15F1900680CF1 /* CTone+CoreDataProperties.swift */,
 				FE7AD10D2AB046D500680CF1 /* ToneCacheCD.swift */,
 			);
 			path = Tones;
@@ -292,6 +357,14 @@
 				FE7AD1062AB0455C00680CF1 /* Wallpaper.xcdatamodeld */,
 			);
 			path = Wallpapers;
+			sourceTree = "<group>";
+		};
+		FE7AD13D2AB17B4000680CF1 /* Injected */ = {
+			isa = PBXGroup;
+			children = (
+				FE7AD13E2AB17B7700680CF1 /* Container+Dependencies.swift */,
+			);
+			path = Injected;
 			sourceTree = "<group>";
 		};
 		FEC6F51E2AAF9839005F23F9 /* ToastView */ = {
@@ -310,6 +383,11 @@
 				FE42C3062A76B6F50079CEEB /* Helpers */,
 				FEF66D782A42C09F00CE5525 /* Extensions */,
 				FEF66D8A2A44612600CE5525 /* Constant.swift */,
+				FE7AD12B2AB1733300680CF1 /* APICall.swift */,
+				FE7AD14E2AB1A13D00680CF1 /* LivePhoto.swift */,
+				FE7AD1332AB1776D00680CF1 /* WallpaperRDS.swift */,
+				FE7AD12F2AB1751C00680CF1 /* TokenLDS.swift */,
+				FE7AD12D2AB174E900680CF1 /* WebRepository.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -320,6 +398,8 @@
 				FE4FEA402A38D0F900007166 /* EnvValueExt.swift */,
 				FEF91FBB2A77B7F6008A22A3 /* DoubleExt.swift */,
 				FE7AD1212AB06BAE00680CF1 /* NSNotification.swift */,
+				FE7AD1542AB1C3B700680CF1 /* AVPlayerItemExt.swift */,
+				FE7AD1522AB1B4D600680CF1 /* PHAssetExt.swift */,
 				FE7AD11D2AB050BE00680CF1 /* DateExt.swift */,
 				FEC6F5252AAF9A4B005F23F9 /* ViewExt.swift */,
 				FEF91FBD2A77B871008A22A3 /* StringExt.swift */,
@@ -373,7 +453,10 @@
 			isa = PBXGroup;
 			children = (
 				FEF66D882A4300AF00CE5525 /* WallpaperView.swift */,
+				FE7AD14C2AB19BC300680CF1 /* VLCPlayerView.swift */,
 				FE126BFB2A6D0CAD008C3DB5 /* WallpaperDetailView.swift */,
+				FE7AD1402AB17D9300680CF1 /* WallpaperViewModel.swift */,
+				FE7AD14A2AB19B0700680CF1 /* WallpaperVideoPlayer.swift */,
 			);
 			path = Wallpaper;
 			sourceTree = "<group>";
@@ -383,6 +466,8 @@
 			children = (
 				FEF66D932A45C4BD00CE5525 /* VideosAsset.swift */,
 				FE7AD11B2AB04E6900680CF1 /* Package.swift */,
+				FE7AD1312AB1767100680CF1 /* Token.swift */,
+				FE7AD1352AB1786000680CF1 /* WallpaperCategories.swift */,
 				FE7AD10F2AB04A8500680CF1 /* MyTone.swift */,
 			);
 			path = Models;
@@ -392,6 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				FEF66D8E2A454C8B00CE5525 /* VideoView.swift */,
+				FE7AD1502AB1AC0900680CF1 /* VideoExtractorView.swift */,
 				FEF66D962A45C72000CE5525 /* RecordAudioView.swift */,
 				FE3B7A2D2A477978006100C7 /* AudioCutterView.swift */,
 				FE3B7A2F2A48A363006100C7 /* SaveRingtoneView.swift */,
@@ -408,9 +494,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE4FEA372A38CF7D00007166 /* Build configuration list for PBXNativeTarget "RingtoneForest" */;
 			buildPhases = (
+				C91F127C254B8F690044BCD4 /* [CP] Check Pods Manifest.lock */,
 				FE4FEA252A38CF7C00007166 /* Sources */,
 				FE4FEA262A38CF7C00007166 /* Frameworks */,
 				FE4FEA272A38CF7C00007166 /* Resources */,
+				ABCACAFFA0AD51122DF38287 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -419,6 +507,11 @@
 			name = RingtoneForest;
 			packageProductDependencies = (
 				FEF91FC22A77BD67008A22A3 /* SwiftUIIntrospect */,
+				FE7AD1382AB17B1400680CF1 /* Swinject */,
+				FE7AD13B2AB17B2600680CF1 /* SwinjectAutoregistration */,
+				FE7AD1432AB1809900680CF1 /* Nuke */,
+				FE7AD1452AB1809900680CF1 /* NukeExtensions */,
+				FE7AD1472AB1809900680CF1 /* NukeUI */,
 			);
 			productName = RingtoneForest;
 			productReference = FE4FEA292A38CF7C00007166 /* RingtoneForest.app */;
@@ -450,6 +543,9 @@
 			mainGroup = FE4FEA202A38CF7C00007166;
 			packageReferences = (
 				FEF91FC12A77BD67008A22A3 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				FE7AD1372AB17B1400680CF1 /* XCRemoteSwiftPackageReference "Swinject" */,
+				FE7AD13A2AB17B2600680CF1 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
+				FE7AD1422AB1809900680CF1 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = FE4FEA2A2A38CF7C00007166 /* Products */;
 			projectDirPath = "";
@@ -477,6 +573,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ABCACAFFA0AD51122DF38287 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RingtoneForest/Pods-RingtoneForest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RingtoneForest/Pods-RingtoneForest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RingtoneForest/Pods-RingtoneForest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C91F127C254B8F690044BCD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RingtoneForest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FE4FEA252A38CF7C00007166 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -492,6 +630,7 @@
 				FE7AD0FF2AB0418000680CF1 /* CoreDataStack.swift in Sources */,
 				FEC6F5242AAF995D005F23F9 /* ToastModifier.swift in Sources */,
 				FE7AD1052AB0450400680CF1 /* ProductStore.xcdatamodeld in Sources */,
+				FE7AD1362AB1786000680CF1 /* WallpaperCategories.swift in Sources */,
 				FE3B7A3A2A48B8E5006100C7 /* PremiumPlanView.swift in Sources */,
 				FE42C3082A76B6FF0079CEEB /* AudioContext.swift in Sources */,
 				FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */,
@@ -502,33 +641,46 @@
 				FE7AD1172AB04D9800680CF1 /* ProductStore+CoreDataClass.swift in Sources */,
 				FE7AD1082AB0455C00680CF1 /* Wallpaper.xcdatamodeld in Sources */,
 				FE3B7A322A48A6B8006100C7 /* LiveWallpaperCutterView.swift in Sources */,
+				FE7AD12E2AB174E900680CF1 /* WebRepository.swift in Sources */,
 				FE7AD1222AB06BAE00680CF1 /* NSNotification.swift in Sources */,
 				FE3B7A2E2A477978006100C7 /* AudioCutterView.swift in Sources */,
+				FE7AD1552AB1C3B700680CF1 /* AVPlayerItemExt.swift in Sources */,
+				FE7AD1292AB15F1900680CF1 /* CTone+CoreDataClass.swift in Sources */,
 				FEF66D942A45C4BD00CE5525 /* VideosAsset.swift in Sources */,
 				FEC6F5222AAF9902005F23F9 /* ToastView.swift in Sources */,
+				FE7AD14D2AB19BC300680CF1 /* VLCPlayerView.swift in Sources */,
+				FE7AD14F2AB1A13D00680CF1 /* LivePhoto.swift in Sources */,
 				FEF66D802A43007100CE5525 /* MakerView.swift in Sources */,
 				FE3B7A302A48A363006100C7 /* SaveRingtoneView.swift in Sources */,
-				FE7AD1142AB04BFF00680CF1 /* CTone+CoreDataProperties.swift in Sources */,
 				FE7AD1202AB066C300680CF1 /* CompactTextField.swift in Sources */,
 				FE4FEA3D2A38D08A00007166 /* TabBarView.swift in Sources */,
+				FE7AD1512AB1AC0900680CF1 /* VideoExtractorView.swift in Sources */,
 				FE7AD11C2AB04E6900680CF1 /* Package.swift in Sources */,
+				FE7AD1342AB1776D00680CF1 /* WallpaperRDS.swift in Sources */,
 				FEF91FBE2A77B871008A22A3 /* StringExt.swift in Sources */,
 				FEF91FC02A77BBA9008A22A3 /* ScrollViewOffset.swift in Sources */,
+				FE7AD13F2AB17B7700680CF1 /* Container+Dependencies.swift in Sources */,
 				FEEAF8A92A961E3B0080DCE8 /* RingtoneExtractor.swift in Sources */,
-				FE7AD1132AB04BFF00680CF1 /* CTone+CoreDataClass.swift in Sources */,
 				FE126BF82A6CE45E008C3DB5 /* RenameView.swift in Sources */,
 				FEF66D8F2A454C8B00CE5525 /* VideoView.swift in Sources */,
 				FE7AD1022AB0444600680CF1 /* Tone.xcdatamodeld in Sources */,
 				FE7AD1102AB04A8500680CF1 /* MyTone.swift in Sources */,
+				FE7AD12A2AB15F1900680CF1 /* CTone+CoreDataProperties.swift in Sources */,
 				FE126BFA2A6CE72F008C3DB5 /* DeleteView.swift in Sources */,
+				FE7AD1302AB1751C00680CF1 /* TokenLDS.swift in Sources */,
 				FE7AD10E2AB046D500680CF1 /* ToneCacheCD.swift in Sources */,
+				FE7AD1412AB17D9300680CF1 /* WallpaperViewModel.swift in Sources */,
 				FEF66D832A43008400CE5525 /* MyTonesView.swift in Sources */,
+				FE7AD1322AB1767100680CF1 /* Token.swift in Sources */,
 				FE7AD11A2AB04DAB00680CF1 /* ProductStoreCacheCD.swift in Sources */,
 				FEC6F5262AAF9A4B005F23F9 /* ViewExt.swift in Sources */,
 				FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */,
 				FEF66D8B2A44612600CE5525 /* Constant.swift in Sources */,
+				FE7AD1532AB1B4D600680CF1 /* PHAssetExt.swift in Sources */,
+				FE7AD14B2AB19B0700680CF1 /* WallpaperVideoPlayer.swift in Sources */,
 				FEF91FB82A776987008A22A3 /* LoadingView.swift in Sources */,
 				FE7AD1182AB04D9800680CF1 /* ProductStore+CoreDataProperties.swift in Sources */,
+				FE7AD12C2AB1733300680CF1 /* APICall.swift in Sources */,
 				FE7AD11E2AB050BE00680CF1 /* DateExt.swift in Sources */,
 				FE126BFC2A6D0CAD008C3DB5 /* WallpaperDetailView.swift in Sources */,
 				FE4FEA2D2A38CF7C00007166 /* RingtoneForestApp.swift in Sources */,
@@ -658,6 +810,7 @@
 		};
 		FE4FEA382A38CF7D00007166 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 063EA2AFFF1F6039E9855271 /* Pods-RingtoneForest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -667,6 +820,7 @@
 				DEVELOPMENT_TEAM = TS437CR4M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RingtoneForest/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to access your mic to record audio";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your videos and photos to create music";
@@ -674,7 +828,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -694,6 +847,7 @@
 		};
 		FE4FEA392A38CF7D00007166 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46285DA7EE2760F7B5EAE06A /* Pods-RingtoneForest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -703,6 +857,7 @@
 				DEVELOPMENT_TEAM = TS437CR4M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RingtoneForest/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to access your mic to record audio";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your videos and photos to create music";
@@ -710,7 +865,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -752,6 +906,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FE7AD1372AB17B1400680CF1 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		FE7AD13A2AB17B2600680CF1 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectAutoregistration.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		FE7AD1422AB1809900680CF1 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
 		FEF91FC12A77BD67008A22A3 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/swiftui-introspect";
@@ -763,6 +941,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FE7AD1382AB17B1400680CF1 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE7AD1372AB17B1400680CF1 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		FE7AD13B2AB17B2600680CF1 /* SwinjectAutoregistration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE7AD13A2AB17B2600680CF1 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */;
+			productName = SwinjectAutoregistration;
+		};
+		FE7AD1432AB1809900680CF1 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE7AD1422AB1809900680CF1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		FE7AD1452AB1809900680CF1 /* NukeExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE7AD1422AB1809900680CF1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeExtensions;
+		};
+		FE7AD1472AB1809900680CF1 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE7AD1422AB1809900680CF1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
 		FEF91FC22A77BD67008A22A3 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FEF91FC12A77BD67008A22A3 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;

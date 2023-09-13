@@ -21,6 +21,7 @@ struct MyTonesView: View {
     @State var isMakeTrim = false
     @State var isShowRename = false
     @State var isShowDelete = false
+    @State var goToTutorial = false
     
     @State var choosenRingtone: MyTone? = nil
     @State var playbackTimer: Timer? = nil
@@ -42,8 +43,8 @@ struct MyTonesView: View {
                     
                     Spacer()
                     
-                    Button {
-                        
+                    NavigationLink {
+                        TutorialView()
                     } label: {
                         Image(asset: Asset.Assets.icQuestion)
                             .background(
@@ -71,7 +72,7 @@ struct MyTonesView: View {
                         .padding(.bottom, 72)
                     
                     FillButtonView(text: L10n.makeNow, width: 182, height: 54, cornerRadius: 15, textSize: 14, textColor: Asset.Colors.colorGreen69BE15, foregroundColor: Asset.Colors.colorGreen69BE15O15) {
-                        
+                        NotificationCenter.default.post(name: NSNotification.goToMaker, object: nil)
                     }
                     
                     Spacer()
@@ -99,7 +100,7 @@ struct MyTonesView: View {
                                     switch options {
                                     case .ringtone:
                                         showLoading = true
-                                        GarageBandConverter.share(url: URL(fileURLWithPath: tone.fileName), name: tone.name) { exportedURL, error in
+                                        GarageBandConverter.share(url: RingtoneExtractor.getMyTonePath(name: tone.name), name: tone.name) { exportedURL, error in
                                             showLoading = false
                                             guard let exportedURL = exportedURL else { return }
                                             
@@ -107,7 +108,7 @@ struct MyTonesView: View {
                                             isMakeRingtone = true
                                         }
                                     case .trim:
-                                        urlToShare = URL(fileURLWithPath: tone.fileName)
+                                        urlToShare = RingtoneExtractor.getMyTonePath(name: tone.name)
                                         isMakeTrim = true
                                     case .rename:
                                         choosenRingtone = tone
@@ -122,6 +123,9 @@ struct MyTonesView: View {
                         }
                     }
                 }
+                
+                Spacer()
+                    .frame(height: 60)
             }
             .padding(.horizontal, 16)
             .onChange(of: playingTone) { tone in
@@ -129,9 +133,7 @@ struct MyTonesView: View {
                 progress = 0.0
                 
                 guard let playingTone = playingTone else { return }
-                print(playingTone.fileName)
-                print(FileManager.default.fileExists(atPath: playingTone.fileName))
-                audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: playingTone.fileName))
+                audioPlayer = try? AVAudioPlayer(contentsOf: RingtoneExtractor.getMyTonePath(name: playingTone.name))
                 
                 if let audioPlayer = audioPlayer {
                     audioPlayer.play()
@@ -154,7 +156,7 @@ struct MyTonesView: View {
             }
             
             if isMakeTrim {
-                NavigationLink(destination: AudioCutterView(url: urlToShare, isCreatedTmp: false), isActive: $isMakeTrim) {
+                NavigationLink(destination: AudioCutterView(url: urlToShare, isCreatedTmp: false, fromMyTone: true), isActive: $isMakeTrim) {
                     EmptyView()
                 }
             }
@@ -164,22 +166,28 @@ struct MyTonesView: View {
                     isShowRename = false
                 } onSubmit: { fileName in
                     guard !fileName.isEmpty else {
+                        self.hideKeyboard()
                         toast = Toast(type: .error, title: "Missing name", message: "No audio name for file")
                         return
                     }
                     
+                    guard ToneCacheCD.shared.isAvailableFor(name: fileName) else {
+                        self.hideKeyboard()
+                        toast = Toast(type: .error, title: "Name is not available", message: "The file name has already gotten. Please change your file name")
+                        return
+                    }
+                    
                     if let choosenRingtone = choosenRingtone {
-                        let ringtoneDirectory = RingtoneExtractor.getRingtonePath()
-                        let destinationPath = ringtoneDirectory.appendingPathComponent("\(fileName).m4a")
+                        let destinationPath = RingtoneExtractor.getMyTonePath(name: fileName)
                         
                         if let index = myTones.firstIndex(of: choosenRingtone) {
                             myTones[index].name = fileName
-                            myTones[index].fileName = destinationPath.path
                         }
                         
-                        ToneCacheCD.shared.renameTone(tone: choosenRingtone, newName: fileName, newPath: destinationPath.path)
+                        ToneCacheCD.shared.renameTone(tone: choosenRingtone, newName: fileName)
                         do {
-                            try FileManager.default.moveItem(at: URL(fileURLWithPath: choosenRingtone.fileName), to: destinationPath)
+                            
+                            try FileManager.default.moveItem(at: RingtoneExtractor.getMyTonePath(name: choosenRingtone.name), to: destinationPath)
                             isShowRename = false
                         } catch (let error) {
                             print(error.localizedDescription)
@@ -205,7 +213,8 @@ struct MyTonesView: View {
                         ToneCacheCD.shared.deleteTone(toneID: choosenRingtone.id)
                         
                         do {
-                            try FileManager.default.removeItem(at: URL(fileURLWithPath: choosenRingtone.fileName))
+                            let url = RingtoneExtractor.getMyTonePath(name: choosenRingtone.name)
+                            try FileManager.default.removeItem(at: url)
                             isShowDelete = false
                         } catch (let error) {
                             print(error.localizedDescription)
@@ -215,6 +224,7 @@ struct MyTonesView: View {
 
             }
         }
+        .background(ActivityViewController(activityItems: $urlToShare, isPresented: $isMakeRingtone))
         .toastView(toast: $toast)
         .navigationBarHidden(true)
         .onAppear() {
@@ -228,7 +238,7 @@ struct MyTonesView: View {
         var allTones: [MyTone] = []
         if let cacheTones = cacheTones {
             for cacheTone in cacheTones {
-                allTones.append(MyTone(name: cacheTone.name ?? "", fileName: cacheTone.fileName ?? "", duration: cacheTone.duration))
+                allTones.append(MyTone(id: cacheTone.id!, name: cacheTone.name ?? "", duration: cacheTone.duration))
             }
         }
         
@@ -278,7 +288,7 @@ struct MyTonesRowView: View {
                     onPlayButtonClick()
                     showOptions = true
                 } label: {
-                    Image(asset: playingTone == tone || isPlaying ? Asset.Assets.icPauseWhite : Asset.Assets.icPlayWhite)
+                    Image(asset: playingTone == tone && isPlaying ? Asset.Assets.icPauseWhite : Asset.Assets.icPlayWhite)
                 }
             }
             .padding(.bottom, 15)
@@ -290,16 +300,15 @@ struct MyTonesRowView: View {
                             .fill(Color(asset: Asset.Colors.colorGreen69BE15).opacity(0.1))
                             .frame(height: 1)
                         
-                        if isPlaying {
                             Rectangle()
                                 .fill(Color(asset: Asset.Colors.colorGreen69BE15))
                                 .frame(height: 2)
-                                .frame(width: (UIScreen.main.bounds.width - 32) * progress)
+                                .frame(width: playingTone == tone ? (UIScreen.main.bounds.width - 32) * progress : 0)
                             
                             Circle()
                                 .fill(Color(asset: Asset.Colors.colorGreen69BE15))
                                 .frame(width: 9, height: 9)
-                        }
+                                .offset(x: playingTone == tone ? (UIScreen.main.bounds.width - 32) * progress : 0)
                     }
                     .padding(.bottom, 8)
                     

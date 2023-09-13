@@ -168,7 +168,7 @@ struct RecordAudioView: View {
                 let url = RingtoneExtractor.getRecordingPath()
                 let fileName = url.appendingPathComponent("myRcd.m4a")
                 
-                NavigationLink(destination: AudioCutterView(url: fileName, isCreatedTmp: false), isActive: $goToAudioCutter) {
+                NavigationLink(destination: AudioCutterView(url: fileName, isCreatedTmp: false, fromMyTone: false), isActive: $goToAudioCutter) {
                     EmptyView()
                 }
             }

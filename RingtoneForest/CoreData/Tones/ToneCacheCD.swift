@@ -33,7 +33,6 @@ class ToneCacheCD {
         let newTone = CTone(context: managedContext)
         newTone.id = tone.id
         newTone.name = tone.name
-        newTone.fileName = tone.fileName
         newTone.duration = tone.duration
         newTone.timestamp = Date()
         
@@ -41,7 +40,22 @@ class ToneCacheCD {
         print("Save new tone succesfully")
     }
     
-    func renameTone(tone: MyTone, newName: String, newPath: String) {
+    func isAvailableFor(name: String) -> Bool {
+        let tonesFetch: NSFetchRequest<CTone> = CTone.fetchRequest()
+        tonesFetch.predicate = NSPredicate(format: "name LIKE %@", name)
+        
+        do {
+            let managedContext = AppDelegate.instance.toneCoreDataStack.managedContext
+            let tonesCache = try managedContext.fetch(tonesFetch)
+            
+            return tonesCache.isEmpty
+        } catch let error as NSError {
+            print("isAvailableFor error: \(error) description: \(error.userInfo)")
+            return false
+        }
+    }
+    
+    func renameTone(tone: MyTone, newName: String) {
         let tonesFetch: NSFetchRequest<CTone> = CTone.fetchRequest()
         tonesFetch.predicate = NSPredicate(format: "id LIKE %@", tone.id)
         tonesFetch.fetchLimit = 1
@@ -53,7 +67,6 @@ class ToneCacheCD {
             if tonesCache.count > 0 {
                 let tone = tonesCache.first!
                 tone.name = newName
-                tone.fileName = newPath
                 
                 AppDelegate.instance.toneCoreDataStack.saveContext()
                 print("Rename tone successfully")

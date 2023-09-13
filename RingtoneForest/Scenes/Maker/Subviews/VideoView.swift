@@ -22,6 +22,8 @@ struct VideoView: View {
     @State var goToAudioCutter = false
     @State var showLoading = false
     
+    @State var goToVideoExtractor = false
+    
     @State var toast: Toast? = nil
     
     var body: some View {
@@ -37,11 +39,11 @@ struct VideoView: View {
                             Image(asset: Asset.Assets.icClose)
                                 .padding(.leading, 16)
                         }
-
+                        
                         Spacer()
                     }
-
-
+                    
+                    
                     Text(L10n.media)
                         .modifier(TextModifier(color: Asset.Colors.colorWhite90, size: 20, weight: .bold))
                 }
@@ -52,35 +54,42 @@ struct VideoView: View {
                         ForEach(videos) { video in
                             VideoGridView(image: video.image ?? UIImage(), time: video.duration)
                                 .onTapGesture {
-                                    guard let url = video.url else { return }
-                                    
-                                    let composition = AVMutableComposition()
-                                    do {
-                                        let asset = url
-                                        guard let audioAssetTrack = asset.tracks(withMediaType: .audio).first else { return }
-                                        guard let audioCompositionTrack = composition.addMutableTrack(withMediaType: .audio
-                                                                                                      , preferredTrackID: kCMPersistentTrackID_Invalid) else { return }
-                                        try audioCompositionTrack.insertTimeRange(audioAssetTrack.timeRange, of: audioAssetTrack, at: .zero)
+                                    if type == .audioFromVideo {
+                                        guard let url = video.url else { return }
                                         
-                                        let outputURL = URL(fileURLWithPath: NSTemporaryDirectory() + "tempForCuttingAudioFromVideo.m4a")
-                                        RingtoneExtractor.shared.removeFileIfExists(fileURL: outputURL.path)
-                                        
-                                        guard let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough) else { return }
-                                        exportSession.outputFileType = .m4a
-                                        exportSession.outputURL = outputURL
-                                        
-                                        exportSession.exportAsynchronously {
-                                            guard case exportSession.status = AVAssetExportSession.Status.completed else {
-                                                toast = Toast(type: .error, title: "No audio", message: "This video has no audio")
-                                                return
-                                            }
+                                        let composition = AVMutableComposition()
+                                        do {
+                                            let asset = url
+                                            guard let audioAssetTrack = asset.tracks(withMediaType: .audio).first else { return }
+                                            guard let audioCompositionTrack = composition.addMutableTrack(withMediaType: .audio
+                                                                                                          , preferredTrackID: kCMPersistentTrackID_Invalid) else { return }
+                                            try audioCompositionTrack.insertTimeRange(audioAssetTrack.timeRange, of: audioAssetTrack, at: .zero)
                                             
-                                            selectedURL = outputURL
-                                            goToAudioCutter = true
+                                            let outputURL = URL(fileURLWithPath: NSTemporaryDirectory() + "tempForCuttingAudioFromVideo.m4a")
+                                            RingtoneExtractor.shared.removeFileIfExists(fileURL: outputURL.path)
+                                            
+                                            guard let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough) else { return }
+                                            exportSession.outputFileType = .m4a
+                                            exportSession.outputURL = outputURL
+                                            
+                                            exportSession.exportAsynchronously {
+                                                guard case exportSession.status = AVAssetExportSession.Status.completed else {
+                                                    toast = Toast(type: .error, title: "No audio", message: "This video has no audio")
+                                                    return
+                                                }
+                                                
+                                                selectedURL = outputURL
+                                                goToAudioCutter = true
+                                            }
+                                        } catch {
+                                            print(error)
                                         }
-                                    } catch {
-                                        print(error)
+                                        
+                                    } else {
+                                        selectedAsset = video
+                                        goToVideoExtractor = true
                                     }
+                                    
                                 }
                         }
                     }
@@ -92,14 +101,26 @@ struct VideoView: View {
             }
             
             if let selectedURL = selectedURL, goToAudioCutter {
-                NavigationLink(destination: AudioCutterView(url: selectedURL, isCreatedTmp: true), isActive: $goToAudioCutter) {
+                NavigationLink(destination: AudioCutterView(url: selectedURL, isCreatedTmp: true, fromMyTone: false), isActive: $goToAudioCutter) {
+                    EmptyView()
+                }
+            }
+            
+            if let selectedAsset = selectedAsset, goToVideoExtractor {
+                NavigationLink(destination: VideoExtractorView(asset: selectedAsset), isActive: $goToVideoExtractor) {
                     EmptyView()
                 }
             }
         }
         .toastView(toast: $toast)
         .onAppear() {
-            fetchVideos()
+            PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
+                if status == .restricted || status == .denied {
+                    toast = Toast(type: .error, title: "Permission denied", message: "Please change your permission in settings to get your videos")
+                } else {
+                    fetchVideos()
+                }
+            }
         }
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -182,13 +203,13 @@ struct VideoGridView: View {
             
             VStack {
                 Spacer()
-
+                
                 HStack {
                     Image(asset: Asset.Assets.icVideoFromMedia)
                         .padding(.leading, 5)
-
+                    
                     Spacer()
-
+                    
                     Text(time)
                         .modifier(TextModifier(color: Asset.Colors.colorWhite, size: 12, weight: .regular))
                         .padding(.trailing, 8)

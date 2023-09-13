@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PremiumPlanView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var priceWeek = ""
     @State var priceMonth = ""
     @State var priceYear = ""
@@ -20,10 +21,16 @@ struct PremiumPlanView: View {
             
             VStack(spacing: 0) {
                 HStack {
-                    Image(asset: Asset.Assets.icClose)
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(asset: Asset.Assets.icClose)
+                            .contentShape(Rectangle())
+                    }
                     
                     Spacer()
                 }
+                .padding(.top, 10)
                 .padding(.bottom, 10)
                 
                 HStack(spacing: 18) {
@@ -106,6 +113,7 @@ struct PremiumPlanView: View {
             }
             .padding(.horizontal, 16)
         }
+        .navigationBarHidden(true)
     }
 }
 

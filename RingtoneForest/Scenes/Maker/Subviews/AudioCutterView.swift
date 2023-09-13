@@ -60,6 +60,8 @@ struct AudioCutterView: View {
     @State var toast: Toast? = nil
     @State var goToOutputFolder = false
     
+    var fromMyTone: Bool
+    
     var body: some View {
         let horizontalPadding: CGFloat = 32
         let screenWidth = UIScreen.main.bounds.width
@@ -319,6 +321,12 @@ struct AudioCutterView: View {
                         return
                     }
                     
+                    guard ToneCacheCD.shared.isAvailableFor(name: audioName) else {
+                        showLoading = false
+                        toast = Toast(type: .error, title: "Name is not available", message: "The file name has already gotten. Please change your file name")
+                        return
+                    }
+                    
                     let asset = AVAsset(url: url)
                     
                     Task {
@@ -334,8 +342,12 @@ struct AudioCutterView: View {
                                     RingtoneExtractor.shared.removeFileIfExists(fileURL: url.path)
                                 }
                                 
-                                DispatchQueue.main.async {
-                                    NotificationCenter.default.post(name: NSNotification.goToMyTone, object: ["fromMake": true])
+                                if fromMyTone {
+                                    presentationMode.wrappedValue.dismiss()
+                                } else {
+                                    DispatchQueue.main.async {
+                                        NotificationCenter.default.post(name: NSNotification.goToMyTone, object: ["fromMake": true])
+                                    }
                                 }
                                 
                             default: break
@@ -449,6 +461,9 @@ struct AudioCutterView: View {
             
             
         }
+        .onDisappear() {
+            self.playerTimer?.invalidate()
+        }
     }
     
     func getFadeInPosition(startTime: Double) {
@@ -558,6 +573,6 @@ struct AudioCutterView: View {
 
 struct AudioCutterView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioCutterView(url: Bundle.main.url(forResource: "sample_2", withExtension: "mp3")!, isCreatedTmp: false)
+        AudioCutterView(url: Bundle.main.url(forResource: "sample_2", withExtension: "mp3")!, isCreatedTmp: false, fromMyTone: false)
     }
 }

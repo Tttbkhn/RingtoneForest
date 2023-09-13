@@ -19,4 +19,5 @@ enum Constant {
     static let packages = [Package(productID: "com.ringtone.week1", name: "One Week", date: 7), Package(productID: "com.ringtone.month1", name: "One Month", date: 30), Package(productID: "com.ringtone.year1", name: "One Year", date: 365)]
     
     static let appID = "aaasdfasdf"
+    static let kTokenCache = "kTokenCache"
 }
