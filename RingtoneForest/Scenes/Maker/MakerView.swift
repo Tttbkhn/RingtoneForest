@@ -10,10 +10,12 @@ import AVKit
 
 struct MakerView: View {
     @State var goToVideoPicker = false
+    @State var goToAudioPicker = false
     @State var goToFilePicker: Bool = false
     @State var selectedURL: URL? = nil
     @State var goToAudioCutter = false
     @State var goToRecord = false
+    @State var goPremium = false
     
     @State var toast: Toast? = nil
     
@@ -33,7 +35,7 @@ struct MakerView: View {
                     Spacer()
                     
                     Button {
-                        
+                        goPremium = true
                     } label: {
                         Image(asset: Asset.Assets.icCrown)
                             .background(
@@ -52,7 +54,7 @@ struct MakerView: View {
                 
                 HStack(spacing: 14) {
                     Button {
-                        goToVideoPicker = true
+                        goToAudioPicker = true
                     } label: {
                         MakerGridView(icon: Asset.Assets.icVideo, text: L10n.fromVideo, colors: Constant.blueGradient)
                     }
@@ -74,7 +76,7 @@ struct MakerView: View {
                 
                 HStack(spacing: 14) {
                     Button {
-                        
+                        goToVideoPicker = true
                     } label: {
                         MakerGridView(icon: Asset.Assets.icLiveWallpaper, text: L10n.liveWallpaperMaker, colors: Constant.yellowGradient)
                     }
@@ -91,8 +93,20 @@ struct MakerView: View {
             }
             .padding(.horizontal, 16)
             
+            if goToAudioPicker {
+                NavigationLink(destination: VideoView(type: .audioFromVideo), isActive: $goToAudioPicker) {
+                    EmptyView()
+                }
+            }
+            
             if goToVideoPicker {
-                NavigationLink(destination: VideoView(type: .audioFromVideo), isActive: $goToVideoPicker) {
+                NavigationLink(destination: VideoView(type: .wallpaperMaker), isActive: $goToVideoPicker) {
+                    EmptyView()
+                }
+            }
+            
+            if goPremium {
+                NavigationLink(destination: PremiumPlanView(), isActive: $goPremium) {
                     EmptyView()
                 }
             }
