@@ -9,6 +9,7 @@ import SwiftUI
 import AVKit
 import Swinject
 import Tiercel
+import SwiftyStoreKit
 
 @main
 struct RingtoneForestApp: App {
@@ -40,8 +41,42 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         AppDelegate.container.registerDependencies()
         AppDelegate.instance = self
         
+        setupStoreKit()
+        checkPurchased()
+        
         try? AVAudioSession.sharedInstance().setCategory(.playback)
         
         return true
+    }
+    
+    func setupStoreKit() {
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                case .failed, .purchasing, .deferred:
+                    break
+                @unknown default:
+                    fatalError()
+                }
+            }
+        }
+    }
+    
+    func checkPurchased() {
+        let productPurchased = ProductStoreCacheCD.shared.getPurchased()
+        if let productPurchased = productPurchased {
+            if productPurchased.dateExpired! <= Calendar.current.dateComponents(in: .current, from: Date()).date! {
+                UserDefaults.standard.setValue(false, forKey: Constant.isPurchased)
+                ProductStoreCacheCD.shared.removeProductExpired()
+            } else {
+                UserDefaults.standard.setValue(true, forKey: Constant.isPurchased)
+            }
+        } else {
+            UserDefaults.standard.setValue(false, forKey: Constant.isPurchased)
+        }
     }
 }

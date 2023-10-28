@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "swiftystorekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bizz84/SwiftyStoreKit.git",
+      "state" : {
+        "revision" : "9ce911639680113dac9b554d6243e406a9758ebe",
+        "version" : "0.16.4"
+      }
+    },
+    {
       "identity" : "swinject",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Swinject/Swinject.git",

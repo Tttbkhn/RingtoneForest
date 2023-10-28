@@ -33,6 +33,7 @@ struct WallpaperDetailView: View {
                     WallpaperVideoPlayer(avPlayer: player)
                         .ignoresSafeArea()
                         .onAppear() {
+                            print(wallpaper.filename)
                             player?.play()
                         }
                 } else {
@@ -142,6 +143,11 @@ struct WallpaperDetailView: View {
             
             if showSuccess {
                 SavingView()
+            }
+        }
+        .onAppear() {
+            if wallpaper.filename.suffix(4).contains("mp4") || wallpaper.filename.suffix(4).contains("mov") {
+                player = AVPlayer(url: URL(string: wallpaper.filename)!)
             }
         }
         .toastView(toast: $toast)

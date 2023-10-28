@@ -30,7 +30,6 @@
 		FE4FEA482A38D2AE00007166 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE4FEA472A38D2AD00007166 /* Localizable.strings */; };
 		FE4FEA4B2A38D2F600007166 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA492A38D2F600007166 /* Assets.swift */; };
 		FE4FEA4C2A38D2F600007166 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA4A2A38D2F600007166 /* L10n.swift */; };
-		FE5BC8782A839F5D00577AD4 /* sample_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */; };
 		FE7AD0FF2AB0418000680CF1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD0FE2AB0418000680CF1 /* CoreDataStack.swift */; };
 		FE7AD1022AB0444600680CF1 /* Tone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1002AB0444600680CF1 /* Tone.xcdatamodeld */; };
 		FE7AD1052AB0450400680CF1 /* ProductStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1032AB0450400680CF1 /* ProductStore.xcdatamodeld */; };
@@ -67,6 +66,8 @@
 		FE7AD1512AB1AC0900680CF1 /* VideoExtractorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1502AB1AC0900680CF1 /* VideoExtractorView.swift */; };
 		FE7AD1532AB1B4D600680CF1 /* PHAssetExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1522AB1B4D600680CF1 /* PHAssetExt.swift */; };
 		FE7AD1552AB1C3B700680CF1 /* AVPlayerItemExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD1542AB1C3B700680CF1 /* AVPlayerItemExt.swift */; };
+		FE90C6172AEAC2A20044A066 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE90C6162AEAC2A20044A066 /* WebView.swift */; };
+		FE90C61A2AEAC72A0044A066 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE90C6192AEAC72A0044A066 /* SwiftyStoreKit */; };
 		FEC6F5202AAF9850005F23F9 /* FancyToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F51F2AAF9850005F23F9 /* FancyToast.swift */; };
 		FEC6F5222AAF9902005F23F9 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F5212AAF9902005F23F9 /* ToastView.swift */; };
 		FEC6F5242AAF995D005F23F9 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC6F5232AAF995D005F23F9 /* ToastModifier.swift */; };
@@ -118,7 +119,6 @@
 		FE4FEA472A38D2AD00007166 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FE4FEA492A38D2F600007166 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		FE4FEA4A2A38D2F600007166 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
-		FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_2.mp3; sourceTree = "<group>"; };
 		FE7AD0FE2AB0418000680CF1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FE7AD1012AB0444600680CF1 /* CTone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CTone.xcdatamodel; sourceTree = "<group>"; };
 		FE7AD1042AB0450400680CF1 /* ProductStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductStore.xcdatamodel; sourceTree = "<group>"; };
@@ -151,6 +151,7 @@
 		FE7AD1502AB1AC0900680CF1 /* VideoExtractorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExtractorView.swift; sourceTree = "<group>"; };
 		FE7AD1522AB1B4D600680CF1 /* PHAssetExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetExt.swift; sourceTree = "<group>"; };
 		FE7AD1542AB1C3B700680CF1 /* AVPlayerItemExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItemExt.swift; sourceTree = "<group>"; };
+		FE90C6162AEAC2A20044A066 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		FEC6F51F2AAF9850005F23F9 /* FancyToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyToast.swift; sourceTree = "<group>"; };
 		FEC6F5212AAF9902005F23F9 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		FEC6F5232AAF995D005F23F9 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
@@ -180,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEF91FC32A77BD67008A22A3 /* SwiftUIIntrospect in Frameworks */,
+				FE90C61A2AEAC72A0044A066 /* SwiftyStoreKit in Frameworks */,
 				FE7AD1392AB17B1400680CF1 /* Swinject in Frameworks */,
 				FE7AD13C2AB17B2600680CF1 /* SwinjectAutoregistration in Frameworks */,
 				FE7AD1482AB1809900680CF1 /* NukeUI in Frameworks */,
@@ -306,7 +308,6 @@
 		FE4FEA442A38D28700007166 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FE5BC8772A839F5D00577AD4 /* sample_2.mp3 */,
 				FEF91FB92A776C65008A22A3 /* sample.mp3 */,
 				FE4FEA302A38CF7D00007166 /* Assets.xcassets */,
 				FE4FEA492A38D2F600007166 /* Assets.swift */,
@@ -445,6 +446,7 @@
 			children = (
 				FEF66D852A43009700CE5525 /* SettingsView.swift */,
 				FE3B7A392A48B8E5006100C7 /* PremiumPlanView.swift */,
+				FE90C6162AEAC2A20044A066 /* WebView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -512,6 +514,7 @@
 				FE7AD1432AB1809900680CF1 /* Nuke */,
 				FE7AD1452AB1809900680CF1 /* NukeExtensions */,
 				FE7AD1472AB1809900680CF1 /* NukeUI */,
+				FE90C6192AEAC72A0044A066 /* SwiftyStoreKit */,
 			);
 			productName = RingtoneForest;
 			productReference = FE4FEA292A38CF7C00007166 /* RingtoneForest.app */;
@@ -546,6 +549,7 @@
 				FE7AD1372AB17B1400680CF1 /* XCRemoteSwiftPackageReference "Swinject" */,
 				FE7AD13A2AB17B2600680CF1 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
 				FE7AD1422AB1809900680CF1 /* XCRemoteSwiftPackageReference "Nuke" */,
+				FE90C6182AEAC72A0044A066 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 			);
 			productRefGroup = FE4FEA2A2A38CF7C00007166 /* Products */;
 			projectDirPath = "";
@@ -565,7 +569,6 @@
 				FEF66D7D2A42C7F800CE5525 /* Colors.xcassets in Resources */,
 				FE4FEA342A38CF7D00007166 /* Preview Assets.xcassets in Resources */,
 				FE7AD1262AB075D800680CF1 /* projectData in Resources */,
-				FE5BC8782A839F5D00577AD4 /* sample_2.mp3 in Resources */,
 				FEF91FBA2A776C65008A22A3 /* sample.mp3 in Resources */,
 				FE4FEA312A38CF7D00007166 /* Assets.xcassets in Resources */,
 			);
@@ -644,6 +647,7 @@
 				FE7AD12E2AB174E900680CF1 /* WebRepository.swift in Sources */,
 				FE7AD1222AB06BAE00680CF1 /* NSNotification.swift in Sources */,
 				FE3B7A2E2A477978006100C7 /* AudioCutterView.swift in Sources */,
+				FE90C6172AEAC2A20044A066 /* WebView.swift in Sources */,
 				FE7AD1552AB1C3B700680CF1 /* AVPlayerItemExt.swift in Sources */,
 				FE7AD1292AB15F1900680CF1 /* CTone+CoreDataClass.swift in Sources */,
 				FEF66D942A45C4BD00CE5525 /* VideosAsset.swift in Sources */,
@@ -814,14 +818,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RingtoneForest/Preview Content\"";
-				DEVELOPMENT_TEAM = TS437CR4M4;
+				DEVELOPMENT_TEAM = 6RYDU7662V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RingtoneForest/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera to create wallpaper from your video";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to access your mic to record audio";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your videos and photos to create music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -834,8 +840,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tttbkhn.ringtoneforest1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tttbkhn.ringtoneforest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -851,14 +858,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RingtoneForest/Preview Content\"";
-				DEVELOPMENT_TEAM = TS437CR4M4;
+				DEVELOPMENT_TEAM = 6RYDU7662V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RingtoneForest/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera to create wallpaper from your video";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to access your mic to record audio";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your videos and photos to create music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -871,8 +880,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tttbkhn.ringtoneforest1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tttbkhn.ringtoneforest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -930,6 +940,14 @@
 				minimumVersion = 12.0.0;
 			};
 		};
+		FE90C6182AEAC72A0044A066 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.16.4;
+			};
+		};
 		FEF91FC12A77BD67008A22A3 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/swiftui-introspect";
@@ -965,6 +983,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE7AD1422AB1809900680CF1 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
+		};
+		FE90C6192AEAC72A0044A066 /* SwiftyStoreKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE90C6182AEAC72A0044A066 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
+			productName = SwiftyStoreKit;
 		};
 		FEF91FC22A77BD67008A22A3 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;

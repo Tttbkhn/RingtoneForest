@@ -83,7 +83,8 @@ struct TutorialView: View {
                             VStack(spacing: 93) {
                                 Image(asset: page.image)
                                     .resizable()
-                                    .frame(height: 217)
+                                    .scaledToFit()
+//                                    .frame(height: 217)
                                 
                                 HStack(spacing:  0) {
                                     Text(page.text)
@@ -96,7 +97,7 @@ struct TutorialView: View {
                             VStack(spacing: 93) {
                                 Image(asset: page.image)
                                     .resizable()
-                                    .frame(height: 217)
+                                    .scaledToFit()
                                 
                                 VStack(spacing: 3) {
                                     Text(page.text)
@@ -116,7 +117,7 @@ struct TutorialView: View {
                             VStack(spacing: 93) {
                                 Image(asset: page.image)
                                     .resizable()
-                                    .frame(height: 217)
+                                    .scaledToFit()
                                 
                                 HStack(spacing: 0) {
                                     Text("3. Click ")
@@ -131,7 +132,7 @@ struct TutorialView: View {
                             VStack(spacing: 93) {
                                 Image(asset: page.image)
                                     .resizable()
-                                    .frame(height: 217)
+                                    .scaledToFit()
                                 
                                 HStack(spacing: 0) {
                                     Text("4. Click ")
@@ -146,7 +147,7 @@ struct TutorialView: View {
                             VStack(spacing: 93) {
                                 Image(asset: page.image)
                                     .resizable()
-                                    .frame(height: 217)
+                                    .scaledToFit()
                                 
                                 HStack(spacing: 0) {
                                     Text("5. Click ")
@@ -159,7 +160,7 @@ struct TutorialView: View {
                             VStack(spacing: 93) {
                                 Image(asset: page.image)
                                     .resizable()
-                                    .frame(height: 217)
+                                    .scaledToFit()
                                 
                                 Text(L10n.step6)
                                     .modifier(TextModifier(color: Asset.Colors.colorGray7A7A7A, size: 16, weight: .regular))
@@ -197,5 +198,6 @@ struct TutorialView: View {
 struct TutorialView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialView()
+            .previewDevice(PreviewDevice(stringLiteral: "iPhone 14"))
     }
 }

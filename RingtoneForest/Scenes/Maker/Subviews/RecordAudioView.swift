@@ -150,7 +150,7 @@ struct RecordAudioView: View {
                         Spacer()
                         
                         NoFillButtonView(text: L10n.continue, width: 100, height: 46, cornerRadius: 23, textSize: 14, color: Asset.Colors.colorGreen69BE15, lineWidth: 2) {
-                            
+                            goToAudioCutter = true
                         }
                     }
                     .padding(.horizontal, 16)

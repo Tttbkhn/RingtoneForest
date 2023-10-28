@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @State var isSharePresented: Bool = false
     @State var urlToShare: URL = URL(string: "https://apps.apple.com/us/app/id\(Constant.appID)")!
+    @State var showPandT: WebType? = nil
     
     var body: some View {
         ZStack {
@@ -65,7 +66,7 @@ struct SettingsView: View {
                 
                 VStack(spacing: 12) {
                     SettingsRowView(icon: Asset.Assets.icContactUs, text: L10n.contactUs) {
-                        
+                        showPandT = .support
                     }
                     
                     Button {
@@ -76,11 +77,11 @@ struct SettingsView: View {
                     .background(ActivityViewController(activityItems: $urlToShare, isPresented: $isSharePresented))
                     
                     SettingsRowView(icon: Asset.Assets.icPrivacy, text: L10n.privacyPolicy) {
-                        
+                        showPandT = .privacy
                     }
                     
                     SettingsRowView(icon: Asset.Assets.icTerms, text: L10n.terms) {
-                        
+                        showPandT = .term
                     }
                 }
                 
@@ -89,6 +90,9 @@ struct SettingsView: View {
                 
             }
             .padding(.horizontal, 16)
+            .sheet(item: $showPandT) { content in
+                WebView(type: content)
+            }
         }
     }
 }
