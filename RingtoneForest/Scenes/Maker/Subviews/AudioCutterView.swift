@@ -62,18 +62,21 @@ struct AudioCutterView: View {
     
     var fromMyTone: Bool
     
+    let horizontalPadding: CGFloat = 32
+    let screenWidth = UIScreen.main.bounds.width
+    let cutterBarWidth: Double = 24
+    let height: CGFloat = 217
+    let currentBarWidth: Double = 8.56
+    
     var body: some View {
-        let horizontalPadding: CGFloat = 32
-        let screenWidth = UIScreen.main.bounds.width
-        let cutterBarWidth: Double = 24
-        let height: CGFloat = 217
-        let currentBarWidth: Double = 8.56
         let waveformLength = Double(screenWidth - horizontalPadding)
         
         let offsetForStart = testProxy / waveformLength * 30
-        
         let start = Double(offsetLeft / waveformLength * 30 + offsetForStart)
-        let end = Double((offsetRight + waveformLength) / waveformLength * 30 + offsetForStart)
+        
+        let pixelPerWaveform: Double = waveformLength / 30
+        let endWithoutOffset = (offsetRight + waveformLength) / pixelPerWaveform
+        let end = Double(endWithoutOffset + offsetForStart)
         
         ZStack {
             Image(asset: Asset.Assets.imgBackground)
