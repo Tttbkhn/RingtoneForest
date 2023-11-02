@@ -7,7 +7,7 @@
 
 import SwiftUI
 import NukeUI
-import mobileffmpeg
+import ffmpegkit
 import AVKit
 import Photos
 
@@ -173,9 +173,10 @@ struct WallpaperDetailView: View {
         if FileManager.default.fileExists(atPath: outputURL.path) {
             completion(outputURL)
         } else {
-            let execution = MobileFFmpeg.execute("-i \(webmURL.absoluteString) -an \(outputURL.path)")
+            let execution = FFmpegKit.execute("-i \(webmURL.absoluteString) -an \(outputURL.path)")
             
-            if execution == RETURN_CODE_SUCCESS {
+            let returnCode = execution?.getReturnCode()
+            if ReturnCode.isSuccess(returnCode) {
                 completion(outputURL)
             } else {
                 completion(nil)

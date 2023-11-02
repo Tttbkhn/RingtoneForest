@@ -6,7 +6,6 @@ target 'RingtoneForest' do
   use_frameworks!
 
   # Pods for RingtoneForest
-  pod 'mobile-ffmpeg-full', '~> 4.4'
   pod 'MobileVLCKit'
   pod 'Tiercel'
 
