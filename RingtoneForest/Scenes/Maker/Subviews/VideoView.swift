@@ -106,11 +106,11 @@ struct VideoView: View {
                 }
             }
             
-            if let selectedAsset = selectedAsset, goToVideoExtractor {
-                NavigationLink(destination: VideoExtractorView(asset: selectedAsset), isActive: $goToVideoExtractor) {
-                    EmptyView()
-                }
-            }
+//            if let selectedAsset = selectedAsset, goToVideoExtractor {
+//                NavigationLink(destination: VideoExtractorView(asset: selectedAsset), isActive: $goToVideoExtractor) {
+//                    EmptyView()
+//                }
+//            }
         }
         .toastView(toast: $toast)
         .onAppear() {

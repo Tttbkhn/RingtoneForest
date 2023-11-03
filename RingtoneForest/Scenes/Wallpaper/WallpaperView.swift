@@ -14,7 +14,6 @@ enum WallpaperType: Int {
 
 struct WallpaperView: View {
     @StateObject var viewModel: WallpaperViewModel
-    @State var selected: WallpaperType = .live
     
     @State var showLoading = false
     
@@ -39,16 +38,6 @@ struct WallpaperView: View {
                 .padding(.top, 28)
                 .padding(.bottom, 27)
                 
-                HStack {
-                    WallpaperButtonView(isSelected: $selected, text: L10n.live, type: .live)
-                    
-                    WallpaperButtonView(isSelected: $selected, text: L10n.static, type: .staticPic)
-                    
-                    Spacer()
-                }
-                .padding(.bottom, 18)
-                
-                if selected == .live {
                     ScrollView {
                         LazyVStack(alignment: .leading, spacing: 18) {
                             ForEach(viewModel.wallpaperCategories) { category in
@@ -59,10 +48,6 @@ struct WallpaperView: View {
                             }
                         }
                     }
-                } else {
-                    ScrollView {
-                    }
-                }
                 
                 Spacer()
                     .frame(height: 60)

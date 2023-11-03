@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import Photos
 
 struct MakerView: View {
     @State var goToVideoPicker = false
@@ -16,8 +17,12 @@ struct MakerView: View {
     @State var goToAudioCutter = false
     @State var goToRecord = false
     @State var goPremium = false
+    @State var selectedAsset: PHAsset? = nil
+    @State var goToVideoExtractor: Bool = false
     
     @State var toast: Toast? = nil
+    
+    @State var showLoading = false
     
     var body: some View {
         ZStack {
@@ -93,18 +98,6 @@ struct MakerView: View {
             }
             .padding(.horizontal, 16)
             
-            if goToAudioPicker {
-                NavigationLink(destination: VideoView(type: .audioFromVideo), isActive: $goToAudioPicker) {
-                    EmptyView()
-                }
-            }
-            
-            if goToVideoPicker {
-                NavigationLink(destination: VideoView(type: .wallpaperMaker), isActive: $goToVideoPicker) {
-                    EmptyView()
-                }
-            }
-            
             if goPremium {
                 NavigationLink(destination: PremiumPlanView(), isActive: $goPremium) {
                     EmptyView()
@@ -117,10 +110,20 @@ struct MakerView: View {
                 }
             }
             
+            if let selectedAsset = selectedAsset, goToVideoExtractor {
+                NavigationLink(destination: VideoExtractorView(asset: selectedAsset), isActive: $goToVideoExtractor) {
+                    EmptyView()
+                }
+            }
+            
             if goToRecord {
                 NavigationLink(destination: RecordAudioView(), isActive: $goToRecord) {
                     EmptyView()
                 }
+            }
+            
+            if showLoading {
+                LoadingView()
             }
         }
         .toastView(toast: $toast)
@@ -145,6 +148,48 @@ struct MakerView: View {
             } catch {
                 print("Unable to read file")
                 print(error.localizedDescription)
+            }
+        }
+        .fullScreenCover(isPresented: $goToAudioPicker) {
+            PHPickerViewWrapper(showLoading: $showLoading, isAudio: true) { url, _ in
+                showLoading = false
+                guard let url = url else { return }
+                                
+                                let composition = AVMutableComposition()
+                                
+                                do {
+                                    let asset = AVURLAsset(url: url)
+                                    guard let audioAssetTrack = asset.tracks(withMediaType: .audio).first else { return }
+                                    guard let audioCompositionTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) else { return }
+                                    try audioCompositionTrack.insertTimeRange(audioAssetTrack.timeRange, of: audioAssetTrack, at: .zero)
+                                    
+                                    let outputURL = URL(fileURLWithPath: NSTemporaryDirectory() + "tempForCutingAudioFromVideo.m4a")
+                                    if FileManager.default.fileExists(atPath: outputURL.path) {
+                                        try? FileManager.default.removeItem(atPath: outputURL.path)
+                                    }
+                                    
+                                    guard let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough) else { return }
+                                    exportSession.outputFileType = .m4a
+                                    exportSession.outputURL = outputURL
+                                    
+                                    exportSession.exportAsynchronously {
+                                        guard case exportSession.status = AVAssetExportSession.Status.completed else { return }
+                                        
+                                        selectedURL = outputURL
+                                        goToAudioCutter = true
+                                    }
+                                } catch {
+                                    print(error)
+                                }
+            }
+        }
+        .fullScreenCover(isPresented: $goToVideoPicker) {
+            PHPickerViewWrapper(showLoading: $showLoading, isAudio: false) { _, asset in
+                showLoading = false
+                guard let asset = asset else { return }
+                
+                selectedAsset = asset
+                goToVideoExtractor = true
             }
         }
     }

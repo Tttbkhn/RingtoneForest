@@ -14,7 +14,7 @@ struct WallpaperVideoPlayer: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let controller = CustomWallpaperVideoPlayer()
-        controller.videoGravity = .resizeAspect
+        controller.videoGravity = .resizeAspectFill
         controller.showsPlaybackControls = false
         controller.allowsPictureInPicturePlayback = false
         return controller

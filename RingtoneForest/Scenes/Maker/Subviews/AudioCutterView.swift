@@ -67,6 +67,7 @@ struct AudioCutterView: View {
     let cutterBarWidth: Double = 24
     let height: CGFloat = 217
     let currentBarWidth: Double = 8.56
+    @State var isOffsetBarDrag = false
     
     var body: some View {
         let waveformLength = Double(screenWidth - horizontalPadding)
@@ -213,9 +214,13 @@ struct AudioCutterView: View {
                                 DragGesture()
                                     .onChanged({ value in
                                         offsetBar = max(min(offsetBarAccumulated + value.translation.width, screenWidth - horizontalPadding), 0)
+                                        
+                                        isOffsetBarDrag = true
                                     })
                                     .onEnded({ value in
                                         offsetBarAccumulated = offsetBar
+                                        
+                                        isOffsetBarDrag = false
                                     })
                             )
                 }
@@ -297,6 +302,7 @@ struct AudioCutterView: View {
                     } else {
                         avPlayer?.seek(to: CMTime(seconds: start, preferredTimescale: 60000), toleranceBefore: .zero, toleranceAfter: .zero)
                         avPlayer?.play()
+                        avPlayer?.volume = 1
                     }
                 } label: {
                     Image(asset: isPlaying ? Asset.Assets.icPauseRecord : Asset.Assets.icPlayRecord)
@@ -376,8 +382,10 @@ struct AudioCutterView: View {
             
             let offset = progress * (duration / 30) * waveformLength
             let offsetForStart = testProxy / waveformLength * 30
-            offsetBar = offset - testProxy
-            print("offsetBar", offsetBar)
+            if !isOffsetBarDrag {
+                offsetBar = offset - testProxy
+                print("offsetBar", offsetBar)
+            }
         })
 //        .onChange(of: fakeProgress, perform: { newValue in
 //            let offset = progress * (duration / 30) * waveformLength

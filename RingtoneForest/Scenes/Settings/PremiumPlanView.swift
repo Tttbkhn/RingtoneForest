@@ -15,7 +15,7 @@ struct PremiumPlanView: View {
     @State var priceYear = ""
     @State var showPandT: WebType? = nil
     @State var daySelected = false
-    @State var monthSelected = false
+    @State var monthSelected = true
     @State var yearSelected = false
     @State var currentPremium: EPremium = .month
     @State var showSuccessAlert = false

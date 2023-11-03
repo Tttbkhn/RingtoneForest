@@ -21,6 +21,7 @@ struct RecordAudioView: View {
     
     @State var session: AVAudioSession!
     @State var recorder: AVAudioRecorder!
+    @State var isPlaying = false
     
     @State var audioPlayer: AVAudioPlayer? = nil
     
@@ -80,10 +81,13 @@ struct RecordAudioView: View {
                         }
                         .onReceive(timer, perform: {_ in
                             if audioPlayer?.isPlaying ?? false {
+                                isPlaying = true
                                 if !volumeArr.isEmpty, volumeArr[arrIndex] != volumeArr.last {
                                     reader.scrollTo(volumeArr[arrIndex].id, anchor: .trailing)
                                     arrIndex += 1
                                 }
+                            } else {
+                                isPlaying = false
                             }
                         })
                     }
@@ -142,9 +146,9 @@ struct RecordAudioView: View {
                         Spacer()
                         
                         Button {
-                            playRecord()
+                            isPlaying ? pauseRecord() : playRecord()
                         } label: {
-                            Image(asset: Asset.Assets.icPlayRecord)
+                            Image(asset: isPlaying ? Asset.Assets.icPauseRecord : Asset.Assets.icPlayRecord)
                         }
                         
                         Spacer()

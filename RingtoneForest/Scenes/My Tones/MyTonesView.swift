@@ -230,6 +230,9 @@ struct MyTonesView: View {
         .onAppear() {
             fetchTones()
         }
+        .onDisappear() {
+            audioPlayer?.stop()
+        }
     }
     
     func fetchTones() {

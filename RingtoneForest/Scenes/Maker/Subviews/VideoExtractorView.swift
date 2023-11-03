@@ -11,7 +11,7 @@ import Photos
 
 struct VideoExtractorView: View {
     @Environment(\.presentationMode) var presentationMode
-    var asset: VideosAsset
+    var asset: PHAsset
     
     @State var isPlaying = false
     @State var showSuccess = false
@@ -221,7 +221,7 @@ struct VideoExtractorView: View {
             offsetBar = progress * Double(UIScreen.main.bounds.width - 94.0) + 47.0 - UIScreen.main.bounds.width / 2
         }
         .onAppear() {
-            asset.video.getVideoFrames { images, asset in
+            asset.getVideoFrames { images, asset in
                 if let images = images {
                     frames = images.map { ImagesAsset(image: $0) }
                 }
