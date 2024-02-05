@@ -81,7 +81,13 @@ struct MakerView: View {
                 
                 HStack(spacing: 14) {
                     Button {
-                        goToVideoPicker = true
+                        PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
+                            if status == .restricted || status == .denied {
+                                toast = Toast(type: .error, title: "Permission denied", message: "Please change your permission in settings to get your videos")
+                            } else {
+                                goToVideoPicker = true
+                            }
+                        }
                     } label: {
                         MakerGridView(icon: Asset.Assets.icLiveWallpaper, text: L10n.liveWallpaperMaker, colors: Constant.yellowGradient)
                     }
@@ -186,6 +192,7 @@ struct MakerView: View {
         .fullScreenCover(isPresented: $goToVideoPicker) {
             PHPickerViewWrapper(showLoading: $showLoading, isAudio: false) { _, asset in
                 showLoading = false
+                print(asset)
                 guard let asset = asset else { return }
                 
                 selectedAsset = asset

@@ -15,7 +15,7 @@ struct PHPickerViewWrapper: UIViewControllerRepresentable {
     var finishPickingVideo: (URL?, PHAsset?) -> Void
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
-        var config = PHPickerConfiguration()
+        var config = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
         config.selectionLimit = 1
         config.filter = .videos
         let picker = PHPickerViewController(configuration: config)
@@ -61,15 +61,16 @@ class PHPickerCoordinator: NSObject, PHPickerViewControllerDelegate {
                     }
                 }
             } else {
-                let fetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.video, options: nil).firstObject
-                guard let fetchResult = fetchResult else {
+                let identifiers: [String] = results.compactMap(\.assetIdentifier)
+                let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
+                guard let asset = fetchResult.firstObject else {
                     picker.dismiss(animated: true)
                     return
                 }
                 
-                self.finishPickingVideo(nil, fetchResult)
                 DispatchQueue.main.async {
                     picker.dismiss(animated: true)
+                    self.finishPickingVideo(nil, asset)
                 }
             }
             
